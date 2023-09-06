@@ -56,7 +56,19 @@ class ServiceCategoryController extends Controller
     {
         //dd($request->all());
 
-        $Update->update($request->except('_token', '_method', 'image'));
+        $Update->update($request->except('_token', '_method', 'image', 'gallery', 'cover'));
+
+
+        if ($request->hasFile('image')) {
+            $Update->media()->delete();
+            $Update->addMedia($request->image)->toMediaCollection();
+        }
+
+        if ($request->parent){
+            $node = ServiceCategory::find($request);
+            $node->appendNode($Update);
+        }
+
         $Update->save();
 
         toast(SWEETALERT_MESSAGE_UPDATE,'success');
