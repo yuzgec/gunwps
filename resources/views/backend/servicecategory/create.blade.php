@@ -5,7 +5,7 @@
         <div class="card">
             {{Form::open(['route' => 'servicecategory.store', 'enctype' => 'multipart/form-data'])}}
             <div class="card-header d-flex justify-content-between">
-                <x-add title="Hizmet Kategori"></x-add>
+                <x-add title="Service Category"></x-add>
                 <div>
                     <x-back></x-back>
                     <x-save></x-save>

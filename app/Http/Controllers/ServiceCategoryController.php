@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Servicecategory;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
 class ServiceCategoryController extends Controller
@@ -46,7 +46,7 @@ class ServiceCategoryController extends Controller
 
     public function edit($id)
     {
-        $Edit = ServiceCategory::where('id',$id)->first();
+        $Edit = ServiceCategory::findOrFail($id);
         $Kategori = ServiceCategory::all();
 
         return view('backend.servicecategory.edit', compact('Edit', 'Kategori'));
