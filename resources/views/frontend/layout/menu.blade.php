@@ -37,7 +37,7 @@
                         @endforeach
 
                         <li class="order-3 dropdown">
-                            <a class="dropdown-item dropdown-toggle" href="{{ route('services') }}">
+                            <a class="dropdown-item dropdown-toggle" href="#">
                                 {{ __('site.services') }}
                             </a>
                             <ul class="dropdown-menu">
