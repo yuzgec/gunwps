@@ -14,6 +14,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Search;
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use App\Models\Video;
 use App\Models\Wishlist;
 use App\Models\WishlistProduct;
@@ -153,7 +154,9 @@ class HomeController extends Controller
 
         $all = Service::all();
 
-        return view('frontend.studio.index', compact('all'));
+        $show = ServiceCategory::where('id', 3)->firstOrFail();
+
+        return view('frontend.studio.index', compact('all','show'));
     }
 
     public function studio_detail($url){
