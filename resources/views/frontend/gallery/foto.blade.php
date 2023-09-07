@@ -1,10 +1,5 @@
 @extends('frontend.layout.app')
 @section('content')
-
-
-
-
-
     <section class="page-header mb-0">
         <div class="container">
             <div class="row align-items-center">
@@ -14,8 +9,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('foto') }}">Foto Gallery</a></li>
+                        <li><a href="{{ route('rental') }}">{{ __('site.home') }}</a></li>
+                        <li><a href="{{ route('foto') }}">{{ __('site.fotogallery') }}</a></li>
                         <li><a href="{{ route('gallery.detail', $show->slug) }}">{{ $show->title }}</a></li>
                         <li class="active">{{ $all->title }}</li>
                     </ul>

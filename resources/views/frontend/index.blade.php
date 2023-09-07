@@ -5,6 +5,7 @@
     <section class="section">
         <div class="container">
             <div class="row justify-content-center ">
+                @if(config('app.locale') ==  'nl')
                 <div class="col-lg-12 text-center">
                     <div class="appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" style="animation-delay: 100ms;">
                         <span class="top-sub-title text-color-primary"></span>
@@ -21,6 +22,22 @@
                         en non-profit projecten.
                     </p>
                 </div>
+                @else
+                    <div class="col-lg-12 text-center">
+                        <div class="appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" style="animation-delay: 100ms;">
+                            <span class="top-sub-title text-color-primary"></span>
+                            <h2 class=""><span>WESTERPARK STUDIO AMSTERDAM</span></h2>
+                        </div>
+                        <p class="lead mb-2 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter"
+                           data-appear-animation-delay="200" style="animation-delay: 200ms;">Westerpark Studio is a drive-in film and photo studio at the Westergasfabriek area in the center of Amsterdam.
+                        </p>
+                        <p class="text-color-light-3 appear-animation animated fadeInUpShorter appear-animation-visible"
+                           data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">We can support your large productions, but also your smaller shoots and non-profit projects. Our all-in services include Studio hire, light/camera and equipment rental, production, crew, sets and transport.
+
+
+                        </p>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
@@ -33,6 +50,7 @@
                             <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="ASMTERDAM STUDIO VERHUUR">
                         </div>
                     </div>
+                    @if(config('app.locale') ==  'nl')
                     <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">STUDIO VERHUUR</h4>
                     <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
                         <div class="icon-box-info mt-2">
@@ -44,6 +62,14 @@
                             </p>
                         </div>
                     </div>
+                    @else
+                        <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">STUDIO HIRE</h4>
+                        <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                            <div class="icon-box-info mt-2">
+                                <p>We are a full infinity cove and drive-in studio. Aswell, we have a large flat studio wall for multiple shooting possibilities within the same space.</p>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="col-sm-6 col-lg-4 bg-white">
@@ -53,6 +79,7 @@
                             <img src="/studiowesterpark-lichtenverhuur.jpg" class="img-fluid" alt="CAMERA & LICHT VERHUUR">
                         </div>
                     </div>
+                    @if(config('app.locale') ==  'nl')
                     <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">CAMERA & LICHT VERHUUR</h4>
                     <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
                         <div class="icon-box-info mt-2">
@@ -60,6 +87,14 @@
                             </p>
                         </div>
                     </div>
+                    @else
+                        <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">CAMERA & LIGHT RENTAL</h4>
+                        <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                            <div class="icon-box-info mt-2">
+                                <p>We can deliver and assist on all your lighting and equipment needs, whether on location or in the rental studio.</p>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="col-sm-6 col-lg-4 bg-white">
@@ -68,6 +103,8 @@
                             <img src="/Kinefinity_mavoedge_8k_sale_Buy_mavoedge_cinegear_CINE-Gear_EDGE8K_best-price.jpg" class="img-fluid" alt="CINEGEAR SHOP">
                         </div>
                     </div>
+
+                    @if(config('app.locale') ==  'nl')
                     <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">CINEGEAR SHOP</h4>
 
                     <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
@@ -77,6 +114,17 @@
                                 afgeronde foto campagnes en video's.</p>
                         </div>
                     </div>
+                    @else
+                        <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">CINEGEAR SHOP</h4>
+
+                        <div class="icon-box icon-box-style-3 appear-animation " data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                            <div class="icon-box-info mt-2">
+                                <p>We continuously update the gallery for a total impression of Westerpark Studio projects.
+                                    There are "behind the scenes" from the film and photo studio, such as fully
+                                    completed photo campaigns and videos.</p>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
             </div>

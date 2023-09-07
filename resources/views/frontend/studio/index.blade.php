@@ -66,9 +66,7 @@
                         </div>
                     </div>
                 </form>
-                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" >
-
-                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" >
+                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" alt="" >
             </div>
             <div class="col-md-9">
                 <div class="row">

@@ -27,11 +27,11 @@
         <div class="row">
             <div class="col-lg-3 text-center text-lg-start mb-5 mb-lg-0">
                 <a href="{{ route('home') }}">
-                    <img alt="{{ config('app.name') }}" src="/logo.jpg" class="img-fluid" style="mix-blend-mode: multiply;">
+                    <img alt="Amsterdam Westerpark Studio" src="/logo.jpg" class="img-fluid" style="mix-blend-mode: multiply;">
                 </a>
-                <p class=" text-white">WESTERPARK STUDIO, Amsterdam'da birçok olasılığa sahip, yenilenmiş ve kapsamlı bir arabalı film ve fotoğraf stüdyosudur.</p>
+                <p class=" text-white">WESTERPARK STUDIO is a renovated and comprehensive drive-in movie and photo studio in Amsterdam with many possibilities.</p>
 
-                <p class=" text-white"> Üretim de her şey dahil hizmetlerimizin bir parçası haline geldi. Stüdyo alanını kiralamak, ışık ve ekipman kiralamak, ayrıca set ve ekip teslimatı yapmak mümkündür.</p>
+                <p class=" text-white"> Production has also become part of our all-inclusive services. It is possible to rent studio space, rent lights and equipment, as well as deliver sets and crew.</p>
             </div>
 
             <div class="col-lg-3 text-center text-lg-start mb-5 mb-lg-0">
@@ -102,7 +102,7 @@
             </div>
 
             <div class="col-lg-3 text-center text-lg-start mb-5 mb-lg-0">
-                <h4 class="font-weight-bold text-4-5 pb-1 mb-3 text-color-light">Apparatuur Verhuur</h4>
+                <h4 class="font-weight-bold text-4-5 pb-1 mb-3 text-color-light">{{ __('site.equipment') }}</h4>
                 <ul class="list list-unstyled mb-0">
                     @foreach($categories as $item)
                     <li>

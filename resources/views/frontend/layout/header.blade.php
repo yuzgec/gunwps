@@ -29,7 +29,7 @@
                 <div class="header-column justify-content-end">
                     <div class="header-logo">
                         <a href="{{ route('home') }}">
-                            <img alt="{{ config('app.name') }}" src="/logo.jpg" width="250px">
+                            <img alt="Amsterdam Westerpark Studio" src="/logo.jpg" width="250px">
                         </a>
                     </div>
 
