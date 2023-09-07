@@ -1,6 +1,5 @@
 @extends('frontend.layout.app')
 @section('content')
-
     <section class="page-header">
         <div class="container">
             <div class="row">
@@ -25,11 +24,54 @@
                         </li>
                     @endforeach
                 </ul>
+
+                <h2 class="font-weight-bold text-3 mb-3">Quik Contact</h2>
+                <form class="contact-form form-style-2" action="{{ route('contact') }}" method="POST">
+                    <input type="hidden" value="{{ __('site.studio') }}" name="service">
+                    <input type="hidden" value="{{ config('app.locale') }}" name="lang">
+                    @csrf
+                    <div class="form-row row">
+                        <div class="form-group col-md-12  mb-1">
+                            <input type="text" value="{{ old('name') }}" class="form-control @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Name">
+                            @if($errors->has('name'))
+                                <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-12  mb-1">
+                            <input type="email" value="{{ old('email') }}" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="E-mail">
+                            @if($errors->has('email'))
+                                <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-row row">
+                        <div class="form-group col-md-12  mb-1">
+                            <input type="text" value="{{ old('phone') }}" class="form-control @if($errors->has('phone')) is-invalid @endif"  name="phone" placeholder="Phone">
+                            @if($errors->has('phone'))
+                                <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-12  mb-1">
+                            <input type="text" value="" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="form-row row mb-3">
+                        <div class="form-group col-12">
+                            <textarea rows="5" class="form-control" name="message" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row row mb-3 mt-2">
+                        <div class="col">
+                            <input type="submit" value="{{ __('site.form.submit') }}" class="btn btn-primary btn-rounded btn-4 font-weight-semibold text-0">
+                        </div>
+                    </div>
+                </form>
+                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" >
+
                 <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" >
             </div>
             <div class="col-md-9">
                 <div class="row">
-
 
                     @if($show->getFirstMediaUrl('page'))
                         <img src="{{ $show->getFirstMediaUrl('page') }}" class="img-fluid mb-3" alt="{{ $show->title }} - Westerpark Studio Amsterdam" style="width: 100%">
@@ -39,20 +81,19 @@
                         {!! $show->desc !!}
                     </div>
 
-
-                    @foreach($all->where('category',  3) as $item)
+                  {{--  @foreach($all->where('category',  3) as $item)
                         <div class="col-sm-6 col-lg-4 bg-white mb-4">
                             <a href="{{  route('studio.detail', $item->slug )}}">
 
                             <div class="image-frame overlay overlay-show overlay-op-1 image-frame-style-1 image-frame-effect-1 image-frame-style-5 mt-2">
                                 <div class="image-frame-wrapper">
-                                    <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="ASMTERDAM STUDIO VERHUUR">
+                                    <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR">
                                 </div>
                             </div>
                             <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">{{ $item->title }}</h4>
                             </a>
                         </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
             </div>
         </div>
