@@ -9,9 +9,9 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Wester Park Studio Amsterdam", // set false to total remove
+            'title'        => "Westerpark Studio Amsterdam", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'Wester Park Studio Amsterdam - Dashboard'
-            'description'  => 'Wester Park Studio Amsterdam', // set false to total remove
+            'description'  => 'Westerpark Studio Amsterdam', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
             'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
@@ -36,8 +36,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Wester Park Studio Amsterdam', // set false to total remove
-            'description' => 'Wester Park Studio Amsterdam', // set false to total remove
+            'title'       => 'Westerpark Studio Amsterdam', // set false to total remove
+            'description' => 'Westerpark Studio Amsterdam', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
@@ -58,8 +58,8 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Wester Park Studio Amsterdam', // set false to total remove
-            'description' => 'Wester Park Studio Amsterdam', // set false to total remove
+            'title'       => 'Westerpark Studio Amsterdam', // set false to total remove
+            'description' => 'Westerpark Studio Amsterdam', // set false to total remove
             'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [],
