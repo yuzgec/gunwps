@@ -58,3 +58,14 @@
         </div>
     </div>
 @endsection
+
+
+@section('customJS')
+    <script>
+        $(document).ready(function() {
+            $("table").addClass("table table-hover table-striped table-bordered table-responsive");
+            $("img").addClass('img-fluid');
+        })
+    </script>
+@endsection
+
