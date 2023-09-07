@@ -5,13 +5,13 @@ return [
     'phone' => 'Telefoon',
     'email' => 'Email',
     'adres' => 'Adres',
-    'home' => 'Startpagina',
+    'home' => 'Home',
     'corporate' => 'Corporate',
     'about' => 'Over ons',
     'contact' => 'Contact Us',
     'shop' => 'Shop',
     'rental' => "Verhuur",
-    'categories' => "Categorieën",
+    'categories' => " v",
     'products' => "Producten",
 
 
@@ -28,9 +28,9 @@ return [
     'equipmentlist' => "Apparatuur lijst",
 
 
-    'gallery' => 'Galerij',
-    'videogallery' => 'Video Galerij',
-    'fotogallery' => 'Foto Galerij',
+    'gallery' => 'Portfolio',
+    'videogallery' => 'Video Galeri',
+    'fotogallery' => 'Foto Galeri',
     'project' => 'Projects',
     'services' => 'Services',
 
