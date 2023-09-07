@@ -15,6 +15,10 @@ return [
     'products' => "Producten",
 
 
+    //Link
+    'studio-rental' => 'studio-verhuur',
+
+
     //Newsletter
     'newsletter' => "Nieuwsbrief",
     'subscribe' => "Abonneren",

@@ -10,9 +10,6 @@
                             <img alt="{{ config('app.name') }}" width="200px" src="/logo.jpg">
                         </a>
                     </div>
-
-
-
                 </div>
 
                 <div class="header-column justify-content-end">

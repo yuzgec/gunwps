@@ -34,7 +34,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
     Route::get('/contactus', [HomeController::class, 'contactus'])->name('contactus');
     Route::post('/contact', [HomeController::class, 'contact'])->name('contact');
 
-    Route::get('/studio-rental', [HomeController::class, 'studio'])->name('studio');
+    Route::get('/'.__('site.studio-rental'), [HomeController::class, 'studio'])->name('studio');
     Route::get('/p/{slug}', [HomeController::class, 'studio_detail'])->name('studio.detail');
     Route::get('/services', [HomeController::class, 'services'])->name('services');
 

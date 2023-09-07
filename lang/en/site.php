@@ -14,6 +14,9 @@ return [
     'categories' => "Categories",
     'products' => "Products",
 
+    'studio-rental' => 'studio-rental',
+
+
     //Newsletter
     'newsletter' => "Newsletter",
     'subscribe' => "Subscribe",
