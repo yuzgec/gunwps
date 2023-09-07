@@ -29,6 +29,17 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
+
+
+                    @if($show->getFirstMediaUrl('page'))
+                        <img src="{{ $show->getFirstMediaUrl('page') }}" class="img-fluid mb-3" alt="{{ $show->title }} - Westerpark Studio Amsterdam" style="width: 100%">
+                    @endif
+
+                    <div class="mb-4">
+                        {!! $show->desc !!}
+                    </div>
+
+
                     @foreach($all->where('category',  3) as $item)
                         <div class="col-sm-6 col-lg-4 bg-white mb-4">
                             <a href="{{  route('studio.detail', $item->slug )}}">
