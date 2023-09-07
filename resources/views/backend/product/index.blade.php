@@ -9,14 +9,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                         Product List [{{ $All->count() }}]
                     </h4>
-                    <form method="get" style="margin-left:15px">
-                        <div class="input-icon ">
-                            <input type="text" value="{{ request('q') }}" name="q" class="form-control" placeholder="Arama…">
-                            <span class="input-icon-addon">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>
-                            </span>
-                        </div>
-                    </form>
+
                 </div>
                 <div class="d-flex justify-content-between">
                     <a class="btn btn-primary btn-sm me-1" href="{{  url()->previous() }}" title="Geri">
@@ -32,8 +25,31 @@
                         Add Product
                     </a>
                 </div>
-            </div>
 
+            </div>
+            <div class="row mt-2">
+                <div class="col-12 col-md-8">
+                    <form method="get" style="margin-left:10px">
+                        <div class="input-icon ">
+                            <input type="text" value="{{ request('q') }}" name="q" class="form-control" placeholder="Arama…">
+                            <span class="input-icon-addon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>
+                                </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12 col-md-4" >
+                    <select class="form-control" onchange="location = this.options[this.selectedIndex].value;" style="margin-left: -10px">
+                        @foreach($Kategori as  $item)
+                        <option value="{{ url()->current().'?product_categori='.$item->id }}"
+                        @if($item->id == request('product_categori')) ? selected : null @endif>
+                            {{ $item->title }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="table-responsive p-2">
                 <table class="table table-hover table-striped table-bordered ">
@@ -53,7 +69,7 @@
                     @foreach($All as $item)
                         <tr id="page_{{$item->id}}">
                             <td>
-                                {{ $item->rank }}
+                                {{ $item->rank+1 }}
                             </td>
                             <td>
                                 <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'icon')}}"
@@ -143,7 +159,7 @@
                 <div>
                     <a class="btn btn-tabler btn-sm" href="{{ route('productcategory.index') }}" title="Sayfa Ekle">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        Categories
+                        Add Category
                     </a>
                 </div>
             </div>

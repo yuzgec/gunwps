@@ -13,7 +13,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $All = Product::with('getCategory')->orderBy('rank', 'asc')->get();
+        $pc = (request('product_categori')) ? (request('product_categori')) : 11;
+
+        $All = Product::whereHas('getCategory', function ($query) use($pc) {
+            return $query->where('category_id', $pc);
+        })->orderBy('rank', 'asc')->get();
 
         if (request()->filled('q')){
             $q = \request('q');
