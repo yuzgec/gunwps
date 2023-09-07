@@ -48,7 +48,7 @@
 
 
                         @if(config('app.locale') ==  'nl')
-                        <a href="{{ route('studio.detail','studio-verhuur') }}" title="AMSTERDAM STUDIO VERHUUR">
+                        <a href="{{ route('studio') }}" title="AMSTERDAM STUDIO VERHUUR">
                             <div class="image-frame overlay overlay-show overlay-op-1 image-frame-style-1 image-frame-effect-1 image-frame-style-5 mt-2">
                                 <div class="image-frame-wrapper">
                                     <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR">
@@ -67,7 +67,7 @@
                             </div>
                         </a>
                         @else
-                            <a href="{{ route('studio.detail','studio-rental') }}" title="AMSTERDAM STUDIO RENTAL">
+                            <a href="{{ route('studio') }}" title="AMSTERDAM STUDIO RENTAL">
                             <div class="image-frame overlay overlay-show overlay-op-1 image-frame-style-1 image-frame-effect-1 image-frame-style-5 mt-2">
                                 <div class="image-frame-wrapper">
                                     <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO RENTAL">
