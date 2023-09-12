@@ -60,9 +60,7 @@
                 <table class="table card-table table-vcenter text-nowrap datatable">
                     <thead>
                     <tr>
-                        <th class="w-1">No.
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="6 15 12 9 18 15"></polyline></svg>
-                        </th>
+                        <th class="w-1">ID</th>
                         <th>Name </th>
                         <th>Company</th>
                         <th>Day</th>
@@ -127,6 +125,7 @@
                         <tr>
                             <td><span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span></td>
                             <td> {{ $item->name }}</td>
+                            <td><img src="/frontend/flag/{{ $item->locale }}.svg" style="width:15px"/></td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->service }}</td>

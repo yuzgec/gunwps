@@ -11,7 +11,7 @@ class WishlistRequest extends FormRequest
     {
         return [
             'name'                  => 'required',
-            'phone'                 => 'required|numeric',
+            'phone'                 => 'required',
             'email'                 => 'email|required',
         ];
     }
@@ -21,7 +21,6 @@ class WishlistRequest extends FormRequest
         return [
             'name.required'         => __('site.wishlistform.name.required'),
             'phone.required'        => __('site.wishlistform.phone.required'),
-            'phone.numeric'        => __('site.wishlistform.phone.requirednumeric'),
             'email.required'        => __('site.wishlistform.email.required'),
             'email.email'           => __('site.wishlistform.email.email'),
         ];
