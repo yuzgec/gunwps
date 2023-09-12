@@ -389,7 +389,7 @@ class HomeController extends Controller
             }
 
             Mail::send("frontend.mail.offer",compact('New'),function ($message) use($New) {
-                $message->to('olcayy@gmail.com')->subject($New->name.' - '.$New->email.' Offer Form');
+                $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
             });
 
             Cart::instance('shopping')->destroy();

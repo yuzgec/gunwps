@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </form>
-                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" alt="" >
+                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR" >
             </div>
             <div class="col-md-9">
                 <div class="row">

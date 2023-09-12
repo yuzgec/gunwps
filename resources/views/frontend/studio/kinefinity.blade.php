@@ -25,7 +25,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" >
+                <img src="/lichtbus-huren-westerpark.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR">
             </div>
             <div class="col-md-9">
                 <div class="row">
@@ -35,7 +35,7 @@
 
                                 <div class="image-frame overlay overlay-show overlay-op-1 image-frame-style-1 image-frame-effect-1 image-frame-style-5 mt-2">
                                     <div class="image-frame-wrapper">
-                                        <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="ASMTERDAM STUDIO VERHUUR">
+                                        <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR">
                                     </div>
                                 </div>
                                 <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">{{ $item->title }}</h4>
@@ -47,3 +47,11 @@
         </div>
     </div>
 @endsection
+@section('customCSS')
+    <style>
+        iframe{
+            width: 100%;
+        }
+    </style>
+    @endsection
+
