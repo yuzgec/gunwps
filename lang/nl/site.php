@@ -11,22 +11,18 @@ return [
     'contact' => 'Contact Us',
     'shop' => 'Shop',
     'rental' => "Verhuur",
-    'categories' => " v",
+    'categories' => "Categories",
     'products' => "Producten",
-
 
     //Link
     'studio-rental' => 'studio-verhuur',
-
 
     //Newsletter
     'newsletter' => "Nieuwsbrief",
     'subscribe' => "Abonneren",
     'enteremail' => "Voer uw e-mailadres in",
 
-
     'equipmentlist' => "Apparatuur lijst",
-
 
     'gallery' => 'Portfolio',
     'videogallery' => 'Video Galeri',

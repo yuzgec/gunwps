@@ -6,14 +6,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('home') }}">{{__('site.home')}}</a></li>
                         <li class="active">{{ $q }}</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="font-weight-bold">{{ $q }} ürün ile alakalı arama</h1>
+                    <p class="text-5">Search results related to the word <span class="font-weight-bold">"{{ $q }}" </span></p>
                 </div>
             </div>
         </div>
