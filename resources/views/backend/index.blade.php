@@ -71,7 +71,7 @@
                         <th>Count</th>
                         <th>Createad At</th>
 
-                        <th>Tarih</th>
+                        <th></th>
 
                     </tr>
                     </thead>
@@ -111,13 +111,14 @@
                 <table class="table card-table table-vcenter text-nowrap datatable">
                     <thead>
                     <tr>
-                        <th class="w-1">No.</th>
+                        <th class="w-1">STATUS</th>
                         <th>Name </th>
+                        <th>Locale </th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Service</th>
                         <th>Subject</th>
-                        <th>Createad At</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
