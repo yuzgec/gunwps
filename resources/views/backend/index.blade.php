@@ -123,9 +123,15 @@
                     <tbody>
                     @foreach($contact as $item)
                         <tr>
-                            <td><span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span></td>
+                            <td>
+                                <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">
+                                     @if($item->status == 0 )
+                                        New
+                                     @endif
+                                </span>
+                            </td>
                             <td> {{ $item->name }}</td>
-                            <td><img src="/frontend/flag/{{ $item->locale }}.svg" style="width:15px"/></td>
+                            <td><img src="/frontend/flag/{{ $item->lang }}.svg" style="width:15px"/></td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->service }}</td>
