@@ -2,41 +2,35 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card-body mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-100 mb-100" >
+                <div class="card mt-5 mb-5">
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <div class="card-body ">
+                        <form method="POST" action="{{ route('register') }}">
                     @csrf
 
-                    <!-- Name -->
                     <div>
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
-                    <!-- Email Address -->
                     <div class="mt-4">
                         <x-input-label for="email" :value="__('Email')" />
                         <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
-                    <!-- Password -->
                     <div class="mt-4">
                         <x-input-label for="password" :value="__('Password')" />
-
                         <x-text-input id="password" class="form-control"
                                       type="password"
                                       name="password"
                                       required autocomplete="new-password" />
-
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
-                    <!-- Confirm Password -->
                     <div class="mt-4">
                         <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
@@ -52,14 +46,14 @@
                             {{ __('Already registered?') }}
                         </a>
 
-                        <x-primary-button class="ml-4">
-                            {{ __('Register') }}
-                        </x-primary-button>
+                        <button type="submit" class="btn btn-primary">
+                            Register
+                        </button>
                     </div>
                 </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
 
         </div>
     </div>
