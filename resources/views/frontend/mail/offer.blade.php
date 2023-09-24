@@ -32,44 +32,29 @@
                     <table class="order-detail" >
                         <tbody>
                             <tr>
-                            <td
-                                colspan="2">Name:</td>
-                            <td
-                                colspan="3" class="price"><b>{{ $New->name }}</b></td>
+                            <td colspan="2">Name:</td>
+                            <td colspan="3" class="price"><b>{{ $New->name }}</b></td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="2">Company:</td>
-                            <td
-                                colspan="3" class="price"><b>{{ $New->company }}</b></td>
+                            <td colspan="2">Company:</td>
+                            <td colspan="3" class="price"><b>{{ $New->company }}</b></td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="2">Email :</td>
-                            <td
-                                colspan="3" class="price"><b>{{ $New->email }}</b></td>
+                            <td colspan="2">Email :</td>
+                            <td colspan="3" class="price"><b>{{ $New->email }}</b></td>
                         </tr>
                         <tr>
-                            <td colspan="2"
-                               >
-                                Phone: </td>
-                            <td colspan="3" class="price"
-                                >
-                                <b>{{ $New->phone }}</b>
-                            </td>
+                            <td colspan="2">Phone: </td>
+                            <td colspan="3" class="price"><b>{{ $New->phone }}</b> </td>
                         </tr>
                         <tr>
                             <td >Message :</td>
-                            <td colspan="3" class="price" >
-                                <b>{{ $New->message }}</b>
-                            </td>
+                            <td colspan="3" class="price"> <b>{{ $New->message }}</b></td>
                         </tr>
 
                         <tr>
                             <td colspan="2" s>Address :</td>
-                            <td colspan="3" class="price"  >
-                                <b>{{ $New->address }}</b>
-                            </td>
+                            <td colspan="3" class="price"> <b>{{ $New->address }}</b></td>
                         </tr>
 
                         <tr>
@@ -163,7 +148,7 @@
                         <tbody>
                         @foreach($Product as $item)
                         <tr>
-                            <td>{{ $item->sku }}:</td>
+                            <td>{{ $item->sku }}</td>
                             <td>
                                 <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" width="100px" height="100px"/>
                             </td>
