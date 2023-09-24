@@ -396,7 +396,7 @@ class HomeController extends Controller
             })->get();
 
             Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
-                $message->to('olcayy@gmail.com')->subject($New->name.' - '.$New->email.' Offer Form');
+                $message->to('bilgi@godijital.net')->subject($New->name.' - '.$New->email.' Offer Form');
             });
 
         });
