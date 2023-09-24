@@ -122,95 +122,190 @@
 </head>
 
 <body style="margin: 20px auto;" data-new-gr-c-s-check-loaded="14.1031.0" data-gr-ext-installed="">
-<table align="center" border="0" cellpadding="0" cellspacing="0"
-       style="width:500px;padding: 0 30px;background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);-webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
-    <tbody>
-    <tr>
-        <td>
-            <table align="center" border="0" cellpadding="0" cellspacing="0">
-                <tbody>
-                <tr>
-                    <td>
-                        <img src="https://35webtasarim.com/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;">
-                    </td>
-                </tr>
+    <table align="center" border="0" cellpadding="0" cellspacing="0"
+           style="width:500px;padding: 0 30px;background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);-webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
+        <tbody>
+        <tr>
+            <td>
+                <table align="center" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="https://35webtasarim.com/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;">
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>
-                        <h2 class="title">WEBSITE CONTACT FORM</h2>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    <tr>
+                        <td>
+                            <h2 class="title">CUSTOMER INFORMATION</h2>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-            <table class="order-detail" style="margin-top: 10px;width: 100%;margin-bottom: 15px;" border="0" cellpadding="0" cellspacing="0">
-                <tbody>
-
-                <tr>
-                    <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
-                        colspan="2">Name:</td>
-                    <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
-                        colspan="3" class="price"><b>{{ $New->name }}</b></td>
-                </tr>
-                <tr>
-                    <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
-                        colspan="2">Email :</td>
-                    <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
-                        colspan="3" class="price"><b>{{ $New->email }}</b></td>
-                </tr>
-                <tr>
-                    <td colspan="2"
-                        style="line-height: 49px;font-family: Arial;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
-                        Phone: </td>
-                    <td colspan="3" class="price"
-                        style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                        <b>{{ $New->phone }}</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">Subject :</td>
-                    <td colspan="3" class="price"
-                        style="
-                                        line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                        <b>{{ $New->subject }}</b>
-                    </td>
-                </tr>
-                @if($New->service)
+                <table class="order-detail" style="margin-top: 10px;width: 100%;margin-bottom: 15px;" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Name:</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>{{ $New->name }}</b></td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Company:</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>{{ $New->company }}</b></td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Email :</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>{{ $New->email }}</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"
+                            style="line-height: 49px;font-family: Arial;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
+                            Phone: </td>
+                        <td colspan="3" class="price"
+                            style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
+                            <b>{{ $New->phone }}</b>
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">Service :</td>
+                                        padding-left: 20px;text-align:left;border-right: unset;">Message :</td>
+                        <td colspan="3" class="price"
+                            style="
+                                            line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
+                            <b>{{ $New->message }}</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
+                                    padding-left: 20px;text-align:left;border-right: unset;">Address :</td>
                         <td colspan="3" class="price"
                             style="
                                         line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                            <b>{{ $New->service }}</b>
+                            <b>{{ $New->address }}</b>
                         </td>
                     </tr>
-                @endif
-                <tr>
-                    <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">Message:</td>
-                    <td colspan="3" class="price"
-                        style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                        <b>{{ $New->message }}</b>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">Date:</td>
-                    <td colspan="3" class="price"
-                        style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                        <b>{{ $New->created_at }}</b>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    </tbody>
-</table>
+                    <tr>
+                        <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
+                                        padding-left: 20px;text-align:left;border-right: unset;">Message:</td>
+                        <td colspan="3" class="price"
+                            style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
+                            <b>{{ $New->message }}</b>
+                        </td>
+                    </tr>
 
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0"
+           style="width:500px;padding: 0 30px;background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);-webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
+        <tbody>
+        <tr>
+            <td>
+                <table align="center" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <h2 class="title">OFFER DETAIL</h2>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
+
+                <table class="order-detail" style="margin-top: 10px;width: 100%;margin-bottom: 15px;" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Locale:</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>{{ $New->locale }}</b></td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Day:</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>X{{ $New->day }}</b></td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;"
+                            colspan="2">Subtotal :</td>
+                        <td style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;"
+                            colspan="3" class="price"><b>{{ $New->subtotal }}</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"
+                            style="line-height: 49px;font-family: Arial;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
+                            Vat %21: </td>
+                        <td colspan="3" class="price"
+                            style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
+                            <b>{{ $New->vat }}</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
+                                        padding-left: 20px;text-align:left;border-right: unset;">Total :</td>
+                        <td colspan="3" class="price"
+                            style="
+                                            line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
+                            <b>{{ $New->totalprice }}</b>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0"
+           style="width:500px;padding: 0 30px;background-color: #fff; box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);-webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
+        <tbody>
+        <tr>
+            <td>
+                <table align="center" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <h2 class="title">PRODUCT DETAIL</h2>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="order-detail" style="margin-top: 10px;width: 100%;margin-bottom: 15px;" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    @foreach($Product as $item)
+                    <tr>
+                        <td>{{ $item->sku }}:</td>
+                        <td>
+                            <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" width="100px" height="100px"/>
+                        </td>
+                        <td>{{ $item->title }}:</td>
+                        <td><b>{{  $item->price  }}</b></td>
+                        <td><b>{{  $item->getBrand->title  }}</b></td>
+                    </tr>
+                    @endforeach
+
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>

@@ -364,8 +364,7 @@ class HomeController extends Controller
             $total = money($vt + $st);
 
             $New = new Wishlist;
-            $New->locale = config('app.locale');
-            $New->day = $request->day;
+
             $New->name = $request->name;
             $New->company = $request->company;
             $New->phone = $request->phone;
@@ -373,6 +372,8 @@ class HomeController extends Controller
             $New->message = $request->message;
             $New->address = $request->address;
             $New->delivery = 'Westerpark Studio';
+            $New->locale = config('app.locale');
+            $New->day = $request->day;
             $New->subtotal = $st;
             $New->vat = $vt;
             $New->totalprice = $total;
@@ -388,11 +389,15 @@ class HomeController extends Controller
                 $wl->save();
             }
 
-            Mail::send("frontend.mail.offer",compact('New'),function ($message) use($New) {
+            Cart::instance('shopping')->destroy();
+
+            $Product = Product::with('getBrand')->whereHas('wishlistProduct', function($query) use ($New)  {
+                   return $query->where('wishlist_id', $New->id);
+            })->get();
+
+            Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
                 $message->to('olcayy@gmail.com')->subject($New->name.' - '.$New->email.' Offer Form');
             });
-
-            Cart::instance('shopping')->destroy();
 
         });
         alert()->success('Successfully Sent','Product have added to your wishlist.')->autoClose(4000);
