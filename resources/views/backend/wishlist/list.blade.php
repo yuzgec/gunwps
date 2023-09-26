@@ -9,17 +9,17 @@
             <div class="table-responsive">
                 <table class="table card-table table-vcenter text-nowrap datatable">
                     <thead>
-                    <tr>
-                        <th class="w-1">No.</th>
-                        <th>Product Name </th>
-                        <th>Brand</th>
-                        <th>QTY</th>
-                        <th>Price</th>
-                    </tr>
+                        <tr>
+                            <th class="w-1">No.</th>
+                            <th>Product Name </th>
+                            <th>Brand</th>
+                            <th>QTY</th>
+                            <th>Price</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @foreach($productlist as $item)
-                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->id)->get() as $p)
+                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->product_id)->get() as $p)
                             <tr>
                                 <td><img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'icon')}}" width="175px"/></td>
                                 <td>{{ $p->title }}</td>
@@ -143,13 +143,13 @@
                         <input type="hidden" name="wishlist_id" value="{{ $item->wishlist_id }}">
                         <input type="hidden" name="quantity" value="{{ $item->quantity }}">
                         <input type="hidden" name="price" value="{{ $item->price }}">
-                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->id)->get() as $p)
+                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->product_id)->get() as $p)
                             <input type="hidden" name="product_id[]" value="{{ $p->id }}">
                             <tr>
                                 <td><img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'small')}}" width="500px"/></td>
                                 <td><span style="color:green">&#x2713;</span>  {{ $p->title }}</td>
                                 <td><b>X{{ $item->quantity }}</b></td>
-                                <td><b>X{{ $item->price }}</b></td>
+                                <td><b>€{{ $item->price }}</b></td>
                             </tr>
                             <tr>
                                 <td colspan="4">

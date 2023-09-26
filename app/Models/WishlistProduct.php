@@ -15,4 +15,7 @@ class WishlistProduct extends Model
     public $timestamps = false;
 
 
+
+
+
 }

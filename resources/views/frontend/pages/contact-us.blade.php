@@ -105,7 +105,7 @@
                                 <select class="form-control" name="subject">
                                     <option value="">{{__('site.form.subject')}}</option>
                                     <option value="Studio Rental">Studio Rental </option>
-                                    <option value="Equipment Rental">Equipment Rental</option>
+                                    <option value="Equipment Rental" {{ (request('product')) ? 'selected' : null }}>Equipment Rental</option>
                                     <option value="Other">Other </option>
                                 </select>
                                {{-- <input type="text" value="{{ old('subject') }}" class="form-control" name="subject" placeholder="{{__('site.form.subject')}}">--}}

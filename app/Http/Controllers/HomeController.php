@@ -402,9 +402,11 @@ class HomeController extends Controller
                    return $query->where('wishlist_id', $New->id);
             })->get();
 
+
+/*
           Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
                 $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
-          });
+          });*/
 
           session()->put('offer_no', $New->id);
 

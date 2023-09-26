@@ -20,12 +20,11 @@ class WishlistController extends Controller
     public function list($id){
         $wishlist = Wishlist::with(['getProduct', 'getOffer','getOfferProduct'])->where('id', $id)->withCount('getProduct')->first();
 
-
         //dd($wishlist);
         $productlist = WishlistProduct::where('wishlist_id', $id)->get();
-        $product = Product::all();
 
-        $wishlistoffer = WishlistOffer::where('wishlist_id', $wishlist->id)->get();
+
+        $wishlistoffer = WishlistOffer::where('wishlist_id', $id)->get();
 
         $activeproduct = [];
         $changeproduct = [];
@@ -37,7 +36,7 @@ class WishlistController extends Controller
 
 
         //dd($activeproduct, $changeproduct);
-
+        $product = Product::all();
         return view('backend.wishlist.list',compact('wishlist', 'productlist','product','wishlistoffer','activeproduct','changeproduct'));
     }
 

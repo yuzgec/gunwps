@@ -16,7 +16,7 @@
                     <table >
                         <tbody>
                             <tr>
-                                <td><img src="https://westerparkstudio.test/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;"></td>
+                                <td><img src="https://westerparkstudio.nl/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;"></td>
                             </tr>
                             <tr>
                                 <td><h2 class="title">CUSTOMER INFORMATION</h2></td>
