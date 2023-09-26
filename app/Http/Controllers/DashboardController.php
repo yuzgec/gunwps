@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index(){
         $Search = Search::select('key', 'language')->paginate(10);
 
-        $wishlist = Wishlist::with(['getProduct', 'getOffer'])->withCount('getProduct')->limit(10)->get();
+        $wishlist = Wishlist::with(['getProduct', 'getOffer'])->withCount('getProduct')->limit(20)->orderBy('created_at', 'desc')->get();
 
         $contact = Contact::limit(10)->get();
 

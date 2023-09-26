@@ -51,12 +51,10 @@
                     <div class="col-sm-6 col-md-4 col-6 mb-4">
                         <div class="image-frame image-frame-border image-frame-style-1 image-frame-effect-2 image-frame-effect-1 overlay overlay-op-1 overlay-show">
                             <div class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-bottom-show image-frame-wrapper-overlay-bottom-shadow image-frame-wrapper-overlay-bottom-shadow-light image-frame-wrapper-align-end">
-                                <a href="{{ route('rentals', $item->slug) }}"
-                                   title="{{ $item->title }}"
-                                   >
-                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}"
+                                <a href="{{ route('rentals', $item->slug) }}" title="{{ $item->title }}">
+                                    <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}"
                                      class="img-fluid"
-                                     alt="{{ $item->title }} - Wester Park Studio Amsterdam">
+                                     alt="{{ $item->title }} - Westerpark Studio Amsterdam">
                                 </a>
                                     <div class="image-frame-action flex-column align-items-center">
                                     <h4 class="text-color-light font-weight-bold mb-0 bg-dark p-1 rounded">

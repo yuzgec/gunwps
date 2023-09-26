@@ -399,32 +399,35 @@ class HomeController extends Controller
             Cart::instance('shopping')->destroy();
 
             $Product = Product::with('getBrand')->whereHas('wishlistProduct', function($query) use ($New)  {
-                   return $query->where('wishlist_id', $New->id);
+               return $query->where('wishlist_id', $New->id);
             })->get();
 
+            if (!config('app.env') ==  'local'){
 
-/*
-          Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
-                $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
-          });*/
+                Mail::send("frontend.mail.offer",compact('New'),function ($message) use($New,$request) {
+                    $message->to($request->email)->subject('Westerpark Studio');
+                });
+
+                Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
+                    $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
+                });
+            }
+
 
           session()->put('offer_no', $New->id);
 
         });
         return redirect()->route('success');
-//      alert()->success('Successfully Sent','Product have added to your wishlist.')->autoClose(4000);
     }
 
     public function success(Request $request){
 
-        $Whishlist= Wishlist::where('id', $request->session()->get('offer_no'))->first();
-
-        //dd($Whishlist);
+       $Whishlist= Wishlist::where('id', $request->session()->get('offer_no'))->first();
 
        $Product = Product::with('getBrand')->whereHas('wishlistProduct', function($query) use ($request)  {
            return $query->where('wishlist_id', $request->session()->get('offer_no'));
        })->get();
 
-        return view('frontend.rental.success', compact('Product', 'Whishlist'));
+       return view('frontend.rental.success', compact('Product', 'Whishlist'));
     }
  }

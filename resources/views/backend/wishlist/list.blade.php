@@ -1,48 +1,11 @@
 @extends('backend.layout.app')
 @section('content')
     <div class="col-12 col-md-6 mt-3">
-        <div class="card mb-2">
-            <div class="card-header d-flex justify-content-between">
-                <div><h3 class="card-title">Product List [{{ $wishlist->get_product_count }}]</h3></div>
-                <div>€{{ money($wishlist->totalprice) }}</div>
-            </div>
-            <div class="table-responsive">
-                <table class="table card-table table-vcenter text-nowrap datatable">
-                    <thead>
-                        <tr>
-                            <th class="w-1">No.</th>
-                            <th>Product Name </th>
-                            <th>Brand</th>
-                            <th>QTY</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($productlist as $item)
-                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->product_id)->get() as $p)
-                            <tr>
-                                <td><img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'icon')}}" width="175px"/></td>
-                                <td>{{ $p->title }}</td>
-                                <td><img src="{{ (!$p->getBrand->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getBrand->getFirstMediaUrl('page', 'small')}}" width="75px"/></td>
-                                <td><b>X{{ $item->quantity }}</b></td>
-                                <td>{{ $item->price }}</td>
-                            </tr>
-                        @endforeach
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="d-flex justify-content-end mb-3">
-                <a href="{{ route('home') }}" class="btn btn-secondary btn-sm mt-2" style="margin-right:10px">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
-                    Send Mail Offer
-                </a>
-            </div>
-        </div>
+
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <div>
-                    <h3 class="card-title">[{{ $wishlist->id }}] Wish List Requests</h3>
+                    <h3 class="card-title">[{{ $wishlist->id }}] Wish List Information</h3>
                 </div>
                 <div>
                     <a onclick="history.back()" class="btn btn-primary btn-sm">Back List</a>
@@ -113,14 +76,53 @@
 
                 <div class="d-flex justify-content-between list-group-item list-group-item-action">
                     <div>Offer PDF</div>
-                    <div>  <button class="btn btn-primary btn-sm">Download</button></div>
+                    <div>
+                        <button class="btn btn-primary btn-sm">Download</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="col-12 col-md-6 mt-3">
-
+        <div class="card mb-2">
+            <div class="card-header d-flex justify-content-between">
+                <div><h3 class="card-title">Product List [{{ $wishlist->get_product_count }}]</h3></div>
+                <div>€{{ money($wishlist->totalprice) }}</div>
+            </div>
+            <div class="table-responsive">
+                <table class="table card-table table-vcenter text-nowrap datatable">
+                    <thead>
+                    <tr>
+                        <th class="w-1">No.</th>
+                        <th>Product Name </th>
+                        <th>Brand</th>
+                        <th>QTY</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($productlist as $item)
+                        @foreach(\App\Models\Product::with('getBrand')->where('id', $item->product_id)->get() as $p)
+                            <tr>
+                                <td><img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'icon')}}" width="175px"/></td>
+                                <td>{{ $p->title }}</td>
+                                <td><img src="{{ (!$p->getBrand->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getBrand->getFirstMediaUrl('page', 'small')}}" width="75px"/></td>
+                                <td><b>X{{ $item->quantity }}</b></td>
+                                <td>{{ $item->price }}</td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('home') }}" class="btn btn-secondary btn-sm mt-2" style="margin-right:10px">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
+                    Send Mail Offer
+                </a>
+            </div>
+        </div>
         <div class="card bg-body">
             <form action="{{ route('wishlist.print',$wishlist->id) }}" method="POST">
                 @csrf
@@ -203,25 +205,22 @@
                 <div><h3 class="card-title">Offer List</h3></div>
             </div>
             <div class="card-body">
-                @if($activeproduct)
+                @if($m)
                     <h4>Mevcut Ürünler</h4>
-                    @foreach($product->whereIn('id', $activeproduct) as $item)
-                        @if(array_search($item->id,$activeproduct) )
-                            <b>Mevcut :  {{ $item->title }}<br></b>
-                        @endif
+                    @foreach($product->whereIn('id', $o ) as $item)
+                        <b>Available :  {{ $item->title }}<br></b>
+                    @endforeach
+                    @foreach($product->whereIn('id',$m) as $item)
+                            <b>Available :  {{ $item->title }}<br></b>
                     @endforeach
                     <hr>
 
                     <h4>Olmayan Ürünler</h4>
-                    @foreach($product->whereIn('id', $changeproduct) as $row)
-                        @if(array_search($row->id,$changeproduct) )
-                            Değişen {{ $item->title }}<br>
-                        @endif
+                    @foreach($product->whereIn('id', $c) as $row)
+                            Changing :  {{ $row->title }}<br>
                     @endforeach
-
-
                 @else
-                    <div class="alert alert-danger">Henuz Teklif Hazırlanmamış</div>
+                    <div class="alert alert-danger">No Offer Prepared Yet</div>
                 @endif
             </div>
         </div>
@@ -237,7 +236,7 @@
         $(document).ready(function() {
             $('.select').select2();
             $('.multiple').select2({
-                placeholder: 'Select an option'
+                placeholder: 'Recommended Products '
             });
         });
     </script>

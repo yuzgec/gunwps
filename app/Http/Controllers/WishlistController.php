@@ -20,9 +20,8 @@ class WishlistController extends Controller
     public function list($id){
         $wishlist = Wishlist::with(['getProduct', 'getOffer','getOfferProduct'])->where('id', $id)->withCount('getProduct')->first();
 
-        //dd($wishlist);
+        //dd($wishlist->getOfferProduct);
         $productlist = WishlistProduct::where('wishlist_id', $id)->get();
-
 
         $wishlistoffer = WishlistOffer::where('wishlist_id', $id)->get();
 
@@ -34,10 +33,18 @@ class WishlistController extends Controller
             $changeproduct[] = $item->product_changed_id;
         }
 
+        $o = array_intersect($activeproduct, $changeproduct);
+
+        // İki dizide de bulunmayan değerleri bulun
+        $m = array_diff($changeproduct, $activeproduct);
+        $c = array_diff($activeproduct, $changeproduct);
+
+        //dd($m, $c, implode(", ", $o));
 
         //dd($activeproduct, $changeproduct);
         $product = Product::all();
-        return view('backend.wishlist.list',compact('wishlist', 'productlist','product','wishlistoffer','activeproduct','changeproduct'));
+
+        return view('backend.wishlist.list',compact('wishlist', 'productlist','product','wishlistoffer','m','c', 'o'));
     }
 
     public function send() {
@@ -48,6 +55,7 @@ class WishlistController extends Controller
 
         //dd($w->subtotal);
         DB::transaction(function () use($request,$w) {
+
 
             $indirimTutari = hesaplaIndirimTutari($w->subtotal, $request->discount_rate, $request->discount_type);
 
@@ -76,14 +84,14 @@ class WishlistController extends Controller
                 $New->product_id = $request->product_id[$i];
                 $New->product_changed_id = $request->product_changed_id[$i];
                 $New->wishlist_offer_id =  $offer->id;
-                $New->wishlist_id =  $w->id;
+                $New->wishlist_id =  $request->wishlist_id;
                 $New ->save();
             }
 
         });
 
-        alert()->success('deneme', 'deneme');
+        //alert()->success('deneme', 'deneme');
 
-        return redirect()->route('wishlist.list', $w->id);
+        return redirect()->route('wishlist.list',  $request->wishlist_id);
     }
 }

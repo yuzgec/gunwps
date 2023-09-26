@@ -56,20 +56,15 @@
                     <span class="mb-2">({{ count($all) }}) products are listed</span>
                     @foreach($all as $item)
                         <div class="col-sm-6 col-md-4 mb-3">
-                            <div class=""  style="{{ (cartControl($item->id) == true) ? 'border:1px solid green' : 'border:2px solid #e3e3e3' }}">
-                                <div class="image-frame image-frame-style-1 image-frame-effect-1 mb-3">
+                            <div style="{{ (cartControl($item->id) == true) ? 'border:1px solid green' : 'border:2px solid #e3e3e3' }}">
+                                <div class=" mb-3">
                                     <span class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                         <a href="{{ route('product', [$show->slug, $item->slug]) }}"
                                            title="{{ $item->title }} Verhuur">
                                             <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}"
-                                                 data-plugin-lazyload data-plugin-options="{'effect' : 'fadeIn'}"
-                                                 class="img-fluid" alt="{{ $item->title }} Verhuur">
+
+                                                 class="img-fluid" alt="{{ $item->title.' - '.__('site.equipment') }} ">
                                         </a>
-                                        <span class="image-frame-action">
-                                            <a href="{{ route('product', [$show->slug, $item->slug]) }}"
-                                               title="{{ $item->title }}"
-                                               class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">ADD TO CART</a>
-                                        </span>
                                     </span>
                                 </div>
 
@@ -88,7 +83,7 @@
                                         <br>€{{ $item->price }}</span>
                                     </div>
 
-                                    <div class="col-4"  style="border:1px solid #e3e3e3">
+                                    <div class="col-4" style="border:1px solid #e3e3e3">
                                         <span class="price font-primary text-2 font-weight-bold text-black-50">Next Days
                                         <br>€{{ $item->price / 2 }}</span>
                                     </div>

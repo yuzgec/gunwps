@@ -32,15 +32,12 @@
                            //dd($show);
                             @endphp
                             <div class="col-sm-6 col-md-4 mb-3">
-                                <div class=""  style="border:1px solid #e3e3e3">
-                                    <div class="image-frame image-frame-style-1 image-frame-effect-1 mb-3">
+                                <div style="border:1px solid #e3e3e3">
+                                    <div class="mb-3">
                                         <span class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                             <a href="{{ route('product', [$show->slug, $item->slug]) }}" title="{{ $item->title }}">
                                                 <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" class="img-fluid" alt="">
                                             </a>
-                                            <span class="image-frame-action">
-                                                <a href="#" class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">ADD TO CART</a>
-                                            </span>
                                         </span>
                                     </div>
 
