@@ -102,12 +102,29 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" value="" class="form-control" name="subject" placeholder="{{__('site.form.subject')}}">
+                                <select class="form-control" name="subject">
+                                    <option value="">{{__('site.form.subject')}}</option>
+                                    <option value="Studio Rental">Studio Rental </option>
+                                    <option value="Equipment Rental">Equipment Rental</option>
+                                    <option value="Other">Other </option>
+                                </select>
+                               {{-- <input type="text" value="{{ old('subject') }}" class="form-control" name="subject" placeholder="{{__('site.form.subject')}}">--}}
                             </div>
                         </div>
+
+                        @if(request('product'))
+                            <div class="form-row row mb-3">
+                                <div class="form-group col-md-12">
+                                    <input type="text" value="{{ request('product') }}" class="form-control" name="service">
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="form-row row mb-3">
                             <div class="form-group col">
-                                <textarea rows="5" class="form-control" name="message" placeholder="{{__('site.form.message')}}"></textarea>
+                                <textarea rows="5" class="form-control" name="message" placeholder="{{__('site.form.message')}}">
+                                    {{ old('message') }}
+                                </textarea>
                             </div>
                         </div>
                         <div class="form-row row mb-3 mt-2">

@@ -116,6 +116,11 @@
                                      <span class="font-weight-bold text-white text-3">€ {{ (request('extvat') == 1) ? round($product->price * 1.21) / 2 : $product->price / 2}}</span>
                                  </div>
                                  <div class="col-12 col-md-4 p-1 text-center">
+                                        @if($product->status == 0 )
+                                     <button class="btn btn-rounded btn-with-arrow btn-danger mb-1 disable text-1">
+                                         {{ __('site.productpage.notavailable') }}<br>
+                                     </button>
+                                    @else
                                      <form action="{{ route('addtocart', [$product->slug, $c->slug]) }}" method="POST">
                                      @csrf
                                      <input type="hidden" name="id" value="{{ $product->id }}">
@@ -124,6 +129,7 @@
                                          <span><i class="fas fa-chevron-right"></i></span>
                                      </button>
                                      </form>
+                                     @endif
                                      <a class="btn btn-link text-white"
                                         href="{{ (request('extvat') == 1) ? url()->current() : url()->current().'?extvat=1' }}">
                                          {{ (request('extvat') == 1) ? 'Include VAT' : 'Excluding VAT'  }}
@@ -131,6 +137,20 @@
                                  </div>
                              </div>
                         </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <a class="btn btn-dark btn-block" href="{{ route('contactus', 'product='.$product->title) }}" title="Quik Message">
+                                <i class="far fa-envelope"></i> Quik Message
+                            </a>
+                            <a class="btn btn-secondary btn-block"
+                                   target="_blank"
+                                   href="https://api.whatsapp.com/send?phone=31634026844&text=Hello, I would like to get information about {{ $product->title }} product rental."
+                                   title="Whatsapp Information"
+                                >
+                                <i class="fab fa-whatsapp"></i> Whatsapp Info
+                            </a>
+                        </div>
+
 
                         <div id="short" class="mt-3">{!! $product->short  !!}</div>
                         <hr class="my-2">
@@ -140,7 +160,7 @@
                                     @if($product->status == 1)
                                         <li>{{ __('site.productpage.availability') }}: <strong><span class="badge bg-success">{{ __('site.productpage.available') }}</span></strong></li>
                                     @else
-                                        <li>{{ __('site.productpage.availability') }}: <strong><span class="badge bg-danger">{{ __('site.productpage.notavailable') }}</span></strong></li>
+                                        <li>{{ __('site.productpage.notavailable') }}: <strong><span class="badge bg-danger">{{ __('site.productpage.notavailable') }}</span></strong></li>
                                     @endif
                                     @if($product->sku)
                                     <li>SKU: <strong>{{ $product->sku }}</strong></li>

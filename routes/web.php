@@ -64,6 +64,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
     Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
     Route::post('/wishlistsave', [HomeController::class, 'wishlistsave'])->name('wishlist.save');
+
+    Route::get('/success', [HomeController::class, 'success'])->name('success');
+
 });
 
 

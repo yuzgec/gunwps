@@ -9,6 +9,22 @@
     define('CARGO_PRICE', 17.90);
     define('MAIL_SEND', 'info@westerpark.nl');
 
+
+    function addRelNofollowToLinks($html)
+    {
+        $dom = new DOMDocument;
+
+        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+
+        // Find any element which is a link
+        $nodes = $dom->getElementsByTagName('a');
+
+
+        $html = $dom->saveHTML();
+
+        return $html;
+    }
+
     function cartControl($id){
         foreach (Cart::instance('shopping')->content() as $c){
             if($c->id == $id){

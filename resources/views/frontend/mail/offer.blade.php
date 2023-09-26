@@ -15,17 +15,12 @@
                 <td>
                     <table >
                         <tbody>
-                        <tr>
-                            <td>
-                                <img src="https://westerparkstudio.test/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <h2 class="title">CUSTOMER INFORMATION</h2>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><img src="https://westerparkstudio.test/logo.jpg" alt="WesterPark" style="margin-bottom: 10px;width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><h2 class="title">CUSTOMER INFORMATION</h2></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -56,15 +51,6 @@
                             <td colspan="2" s>Address :</td>
                             <td colspan="3" class="price"> <b>{{ $New->address }}</b></td>
                         </tr>
-
-                        <tr>
-                            <td >Message:</td>
-                            <td colspan="3" class="price"
-                                >
-                                <b>{{ $New->message }}</b>
-                            </td>
-                        </tr>
-
                         </tbody>
                     </table>
                 </td>
@@ -76,51 +62,35 @@
             <tbody>
             <tr>
                 <td>
-                    <table >
+                    <table>
                         <tbody>
-                        <tr>
-                            <td>
-                                <h2 class="title">OFFER DETAIL</h2>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><h2 class="title">OFFER DETAIL</h2></td>
+                            </tr>
                         </tbody>
                     </table>
 
                     <table class="order-detail" >
                         <tbody>
                         <tr>
-                            <td
-                                colspan="2">Locale:</td>
-                            <td
-                                colspan="3" class="price"><b>{{ $New->locale }}</b></td>
+                            <td colspan="2">Locale:</td>
+                            <td colspan="3" class="price"><b>{{ $New->locale }}</b></td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="2">Day:</td>
-                            <td
-                                colspan="3" class="price"><b>X{{ $New->day }}</b></td>
+                            <td colspan="2">Day:</td>
+                            <td colspan="3" class="price"><b>X{{ $New->day }}</b></td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="2">Subtotal :</td>
-                            <td
-                                colspan="3" class="price"><b>{{ $New->subtotal }}</b></td>
+                            <td colspan="2">Subtotal :</td>
+                            <td colspan="3" class="price"><b>{{ $New->subtotal }}</b></td>
                         </tr>
                         <tr>
-                            <td colspan="2"
-                               >
-                                Vat %21: </td>
-                            <td colspan="3" class="price"
-                                >
-                                <b>{{ $New->vat }}</b>
-                            </td>
+                            <td colspan="2">Vat %21: </td>
+                            <td colspan="3" class="price"><b>{{ $New->vat }}</b></td>
                         </tr>
                         <tr>
                             <td >Total :</td>
-                            <td colspan="3" class="price"
-                               >
-                                <b>{{ $New->totalprice }}</b>
-                            </td>
+                            <td colspan="3" class="price"><b>{{ $New->totalprice }}</b></td>
                         </tr>
 
                         </tbody>
@@ -129,36 +99,30 @@
             </tr>
             </tbody>
         </table>
-        <table style="width: 600px">
 
+        <table style="width: 600px">
             <tbody>
             <tr>
                 <td>
-                    <table >
+                    <table>
                         <tbody>
-                        <tr>
-                            <td>
-                                <h2 class="title">PRODUCT DETAIL</h2>
-                            </td>
-                        </tr>
+                            <tr><td><h2 class="title">PRODUCT DETAIL</h2> </td> </tr>
                         </tbody>
                     </table>
 
                     <table class="order-detail" >
                         <tbody>
-                        @foreach($Product as $item)
-                        <tr>
-                            <td>{{ $item->sku }}</td>
-                            <td>
-                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" width="100px" height="100px"/>
-                            </td>
-                            <td>{{ $item->title }}:</td>
-                            <td><b>{{  $item->price  }}</b></td>
-                            <td><b>{{  $item->getBrand->title  }}</b></td>
-                        </tr>
-                        @endforeach
-
-
+                            @foreach($Product as $item)
+                                <tr>
+                                    <td>{{ $item->sku }}</td>
+                                    <td>
+                                        <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" width="100px" height="100px"/>
+                                    </td>
+                                    <td>{{ $item->title }}:</td>
+                                    <td><b>{{  $item->price  }}</b></td>
+                                    <td><b>{{  $item->getBrand->title  }}</b></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </td>

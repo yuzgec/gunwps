@@ -70,7 +70,7 @@
                             <a href="{{ route('studio') }}" title="AMSTERDAM STUDIO RENTAL">
                             <div class="image-frame overlay overlay-show overlay-op-1 image-frame-style-1 image-frame-effect-1 image-frame-style-5 mt-2">
                                 <div class="image-frame-wrapper">
-                                    <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO RENTAL">
+                                    <img src="/studio-limbo-amsterdam.jpg" class="img-fluid" alt="AMSTERDAM STUDIO VERHUUR">
                                 </div>
                             </div>
                             <h4 class="font-weight-bold text-uppercase m-0 p-0 text-center mt-2">STUDIO HIRE</h4>

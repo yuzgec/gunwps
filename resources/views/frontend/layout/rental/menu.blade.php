@@ -5,7 +5,7 @@
                 <nav class="collapse">
                     <ul class="nav flex-column flex-lg-row" id="mainNav">
                         <li class="order-1 dropdown dropdown-mega">
-                            <a class="dropdown-item dropdown-toggle active" href="{{ route('home') }}">
+                            <a class="dropdown-item dropdown-toggle " href="{{ route('home') }}">
                                 {{ __('site.home') }}
                             </a>
                         </li>
@@ -23,7 +23,7 @@
                         </li>
 
                         <li class="order-3 dropdown">
-                            <a class="dropdown-item dropdown-toggle" href="{{ route('rental') }}">
+                            <a class="dropdown-item dropdown-toggle active" href="{{ route('rental') }}">
                                 {{ __('site.equipment') }}
                             </a>
                         </li>

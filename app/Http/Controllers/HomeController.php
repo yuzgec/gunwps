@@ -19,6 +19,7 @@ use App\Models\Video;
 use App\Models\Wishlist;
 use App\Models\WishlistProduct;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Validator;
 class HomeController extends Controller
 {
     public function index(){
+
+
         SEOMeta::setTitle("WesterPark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Wester Park Studio");
         SEOMeta::setCanonical(url()->full());
@@ -39,7 +42,9 @@ class HomeController extends Controller
         $show = Brand::whereHas('translations', function ($query) use ($brand) {
             $query->where('slug', $brand);
         })->first();
-
+    /*    $dt = Carbon::parse($show->created_at);
+        dd($dt->timestamp, Carbon::parse($dt->timestamp));
+        $c = Carbon::parse($dt->timestamp);*/
         views($show)->cooldown(60)->collection('view')->record();
 
         $all = Product::whereHas('getCategory',  function ($query) use ($show) {
@@ -395,13 +400,27 @@ class HomeController extends Controller
                    return $query->where('wishlist_id', $New->id);
             })->get();
 
-            Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
-                $message->to('bilgi@godijital.net')->subject($New->name.' - '.$New->email.' Offer Form');
-            });
+         /*   Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
+                $message->to('olcayy@gmail.com')->subject($New->name.' - '.$New->email.' Offer Form');
+            });*/
+
+            session()->put('offer_no', $New->id);
 
         });
-        alert()->success('Successfully Sent','Product have added to your wishlist.')->autoClose(4000);
-        return redirect()->route('home');
+        return redirect()->route('success');
+//      alert()->success('Successfully Sent','Product have added to your wishlist.')->autoClose(4000);
+    }
 
+    public function success(Request $request){
+
+        $Whishlist= Wishlist::where('id', $request->session()->get('offer_no'))->first();
+
+        //dd($Whishlist);
+
+       $Product = Product::with('getBrand')->whereHas('wishlistProduct', function($query) use ($request)  {
+           return $query->where('wishlist_id', $request->session()->get('offer_no'));
+       })->get();
+
+        return view('frontend.rental.success', compact('Product', 'Whishlist'));
     }
  }

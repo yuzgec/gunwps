@@ -65,7 +65,7 @@ return [
     'productpage.video' => 'Video',
     'productpage.availability' => 'Beschikbaarheid',
     'productpage.available' => 'Beschikbaar',
-    'productpage.notavailability' => 'Niet beschikbaar',
+    'productpage.notavailable' => 'Niet beschikbaar',
     'productpage.brand' => 'Merk',
     'productpage.share' => 'Deel',
     'productpage.exvat' => 'Exclusief BTW',

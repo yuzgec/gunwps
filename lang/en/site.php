@@ -51,7 +51,7 @@ return [
     'form.name' => 'Name Surname',
     'form.phone' => 'Phone',
     'form.subject' => 'Subject',
-    'form.message' => 'Mesaage',
+    'form.message' => 'Messaage',
     'form.submit' => 'Send Message',
     'form.company' => 'Company',
 
@@ -65,7 +65,7 @@ return [
     'productpage.video' => 'Video',
     'productpage.availability' => 'Availability',
     'productpage.available' => 'Available',
-    'productpage.notavailability' => 'Not Available',
+    'productpage.notavailable' => 'Not Available',
     'productpage.brand' => 'Brand',
     'productpage.share' => 'Share',
     'productpage.exvat' => 'Excluding VAT',
