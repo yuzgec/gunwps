@@ -4,7 +4,7 @@
 
     <div class="col-12 col-md-9">
         <div class="card">
-            {{Form::open(['route' => 'service.store', 'enctype' => 'multipart/form-data'])}}
+            {{Form::open(['route' => 'service.store', 'enctype' => 'multipart/form-data', 'id' => 'goform'])}}
 
                 <div class="card-header d-flex justify-content-between">
                     <x-add title="Hizmet"></x-add>

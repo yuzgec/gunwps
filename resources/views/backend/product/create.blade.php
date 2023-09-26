@@ -4,7 +4,7 @@
 
     <div class="col-12 col-md-8">
         <div class="card">
-            {{Form::open(['route' => 'product.store', 'enctype' => 'multipart/form-data'])}}
+            {{Form::open(['route' => 'product.store', 'enctype' => 'multipart/form-data', 'id' => 'goform'])}}
 
                 <div class="card-header d-flex justify-content-between">
                     <x-add title="Ürün"></x-add>
@@ -47,7 +47,7 @@
                                     <img src="/frontend/flag/{{ $localeCode }}.svg" width="20px"><span  style="margin-left:10px">{{ $properties['native'] }} dili ilgili ayarları yapıyorsunuz.</span>
                                 </div>
                                 <x-form-inputtext label="Başlık Adı Giriniz" name="title:{{ $localeCode }}"/>
-                                <x-form-textarea label="Short Text" name="short:{{ $localeCode }}" ck="short{{ $localeCode }}"/>
+                                <x-form-textarea label="Short Text" name="short:{{ $localeCode }}" ck="short{{ $localeCode }} id="textarea"/>
 
                                 <x-form-textarea label="Desc" name="desc:{{ $localeCode }}" ck="aciklama{{ $localeCode }}"/>
 
@@ -107,7 +107,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <a href="{{ route('productcategory.create') }}">Add Category</a>
+                   {{-- <a href="{{ route('productcategory.create') }}">Add Category</a>--}}
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <a href="{{ route('brand.create') }}">Add Brand</a>
+                  {{--  <a href="{{ route('brand.create') }}">Add Brand</a>--}}
                 </div>
             </div>
 
@@ -236,6 +236,9 @@
         });
     </script>
     <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+
     @include('backend.layout.ck')
+
+
 
 @endsection
