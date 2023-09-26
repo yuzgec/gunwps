@@ -358,6 +358,8 @@ class HomeController extends Controller
 
     public function wishlistsave(WishlistRequest $request){
 
+        session()->forget('offer_no');
+
         DB::transaction(function () use ($request) {
 
             foreach (Cart::instance('shopping')->content() as $c){
@@ -400,11 +402,11 @@ class HomeController extends Controller
                    return $query->where('wishlist_id', $New->id);
             })->get();
 
-         /*   Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
-                $message->to('olcayy@gmail.com')->subject($New->name.' - '.$New->email.' Offer Form');
-            });*/
+          Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
+                $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
+          });
 
-            session()->put('offer_no', $New->id);
+          session()->put('offer_no', $New->id);
 
         });
         return redirect()->route('success');
