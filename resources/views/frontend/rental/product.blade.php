@@ -138,14 +138,14 @@
                              </div>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center mt-2">
+                        <div class="mt-2">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-2">
                                     <a class="btn btn-dark btn-block" href="{{ route('contactus', 'product='.$product->title) }}" title="Quik Message">
                                         <i class="far fa-envelope"></i> Quik Message
                                     </a>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-2">
                                     <a class="btn btn-secondary btn-block"
                                        target="_blank"
                                        href="https://api.whatsapp.com/send?phone=31634026844&text=Hello, I would like to get information about {{ $product->title }} product rental."

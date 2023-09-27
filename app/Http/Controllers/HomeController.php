@@ -404,9 +404,9 @@ class HomeController extends Controller
 
             if (!config('app.env') ==  'local'){
 
-                Mail::send("frontend.mail.offer",compact('New'),function ($message) use($New,$request) {
+             /*   Mail::send("frontend.mail.offer",compact('New'),function ($message) use($New,$request) {
                     $message->to($request->email)->subject('Westerpark Studio');
-                });
+                });*/
 
                 Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
                     $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
