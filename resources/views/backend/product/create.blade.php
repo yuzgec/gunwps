@@ -46,8 +46,8 @@
                                 <div class="text-center mb-2">
                                     <img src="/frontend/flag/{{ $localeCode }}.svg" width="20px"><span  style="margin-left:10px">{{ $properties['native'] }} dili ilgili ayarları yapıyorsunuz.</span>
                                 </div>
-                                <x-form-inputtext label="Başlık Adı Giriniz" name="title:{{ $localeCode }}"/>
-                                <x-form-textarea label="Short Text" name="short:{{ $localeCode }}" ck="short{{ $localeCode }} id="textarea"/>
+                                <x-form-inputtext label="Product Name" name="title:{{ $localeCode }}"/>
+                                <x-form-textarea label="Short Text" name="short:{{ $localeCode }}" ck="short{{ $localeCode }}"/>
 
                                 <x-form-textarea label="Desc" name="desc:{{ $localeCode }}" ck="aciklama{{ $localeCode }}"/>
 

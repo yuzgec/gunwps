@@ -113,6 +113,7 @@
         };
     });
 
+
     // CKEditor içeriği değiştiğinde tetiklenecek olay dinleyicisi
     CKEDITOR.instances.short{{$localeCode}}.on('change', function() {
         window.onbeforeunload = function() {
@@ -124,9 +125,6 @@
     document.querySelector('form').addEventListener('submit', function() {
         window.onbeforeunload = null;
     });
-
-
-
 
     @endforeach
 </script>
