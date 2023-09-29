@@ -26,17 +26,14 @@
                         @foreach($all as $item)
                            @foreach($item->getCategory->take(1) as $category)
                            @php
-                                $show = \App\Models\ProductCategory::with('getProduct')->whereHas('translations', function ($query) use ($category) {
-                                    $query->where('id', $category->category_id);
-                                })->first();
-                           //dd($show);
+                                $show = \App\Models\ProductCategory::where('id', $category->category_id)->first();
                             @endphp
                             <div class="col-sm-6 col-md-4 mb-3">
                                 <div style="border:1px solid #e3e3e3">
                                     <div class="mb-3">
                                         <span class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                             <a href="{{ route('product', [$show->slug, $item->slug]) }}" title="{{ $item->title }}">
-                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" class="img-fluid" alt="">
+                                                <img src="{{ (!$item->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $item->getFirstMediaUrl('page', 'img')}}" class="img-fluid" alt="{{ $item->title }}">
                                             </a>
                                         </span>
                                     </div>
@@ -53,7 +50,7 @@
                                             <br>€{{ $item->price }}</span>
                                         </div>
 
-                                        <div class="col-4"  style="border:1px solid #e3e3e3">
+                                        <div class="col-4" style="border:1px solid #e3e3e3">
                                             <span class="price font-primary text-2 font-weight-bold text-black-50">Next Days
                                             <br>€{{ $item->price / 2 }}</span>
                                         </div>

@@ -112,7 +112,7 @@
         @if (Cart::instance('shopping')->content()->count() > 0)
             <div class="mini-cart-content">
                 <div class="inner-wrapper bg-light rounded">
-                    <div class="mini-cart-product">
+                    <div class="mini-cart-product" style="overflow-y: scroll;overflow-x: hidden;height: 30vh">
                         @foreach(Cart::instance('shopping')->content() as $c)
                             <div class="row">
                                 <div class="col-7">
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="col-5">
                                     <div class="product-image d-flex justify-content-center align-items-center">
-                                        <img src="{{ $c->options->image }}" class="img-fluid rounded" alt="{{$c->name}}" style="width: 175px"/>
+                                        <img src="{{ $c->options->image }}" class="img-fluid rounded" alt="{{$c->name}}" style="width: 40px"/>
                                         <form id="form" method="post" action="{{route('deletecart',$c->rowId )}}">
                                             @csrf
                                             <a href="javascript:{}"

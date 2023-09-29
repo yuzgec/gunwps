@@ -17,8 +17,6 @@
     </section>
     <div class="container container-fluid mt-5">
         <div class="row">
-
-
                 @foreach($all as $item)
                 <div class="col-sm-6 col-md-3 col-lg-1-5 p-3 mb-5">
                     <div class="portfolio-item hover-effect-3d text-center">
@@ -42,8 +40,6 @@
                     </div>
                 </div>
                 @endforeach
-
         </div>
-
     </div>
 @endsection

@@ -25,10 +25,7 @@
                     @foreach($all as $item)
                         @foreach($item->getCategory->take(1) as $category)
                             @php
-                                $show = \App\Models\ProductCategory::with('getProduct')->whereHas('translations', function ($query) use ($category) {
-                                    $query->where('id', $category->category_id);
-                                })->first();
-                           //dd($show);
+                                $show = \App\Models\ProductCategory::where('id', $category->category_id)->first();
                             @endphp
                             <div class="col-sm-6 col-md-3 mb-3">
                                 <div style="border:1px solid #e3e3e3">
