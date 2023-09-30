@@ -28,6 +28,10 @@ class Product extends Model implements TranslatableContract,HasMedia,Viewable
         return $this->hasMany(ProdoctCategoryPivot::class, 'product_id', 'id');
     }
 
+    public function getRelated(){
+        return $this->hasMany(RelatedIncludeProduct::class, 'product_id', 'id');
+    }
+
     public function getBrand(){
         return $this->hasone(Brand::class, 'id', 'brand');
     }

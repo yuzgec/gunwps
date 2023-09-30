@@ -15,3 +15,4 @@
 <link rel="stylesheet" href="/frontend/vendor/rs-plugin/css/navigation.css">
 <link rel="stylesheet" href="/frontend/css/skins/default.css">
 <script src="/frontend/vendor/modernizr/modernizr.min.js"></script>
+@livewireStyles

@@ -31,9 +31,11 @@ return [
     'services' => 'Services',
 
     'studio' => "Studio Verhuur",
-    'filmstudio' => "Film Studio Rental",
-    'fotostudio' => "Foto Studio Rental",
+    'filmstudio' => "Film Studio Verhuur",
+    'fotostudio' => "Foto Studio Verhuur",
     'equipment' => "Apparatuur Verhuur",
+    'included' => 'Inbegrepen in de kit',
+    'related' => 'Ook handig om toe te voegen',
 
     //Link Önekleri
     'galeri_link' => 'gallery',

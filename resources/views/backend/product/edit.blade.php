@@ -15,10 +15,6 @@
                         </h4>
                     </div>
                     <div>
-                    {{--    <a class="btn btn-tabler btn-sm p-2" href="{{ route('productdetail', $Edit->slug) }}" title="Geri">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" /><line x1="10" y1="14" x2="20" y2="4" /><polyline points="15 4 20 4 20 9" /></svg>
-                            Önizle
-                        </a>--}}
                         <a class="btn btn-tabler btn-sm p-2" href="{{  url()->previous() }}" title="Geri">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 18v-6a3 3 0 0 0 -3 -3h-10l4 -4m0 8l-4 -4" /></svg>
                             Back
@@ -55,14 +51,14 @@
                                 <div class="text-center mb-2">
                                     <img src="/frontend/flag/{{ $localeCode }}.svg" width="20px"><span  style="margin-left:10px">{{ $properties['native'] }} dili ilgili ayarları yapıyorsunuz.</span>
                                 </div>
-                                <x-form-inputtext label="Başlık Adı Giriniz" name="title:{{ $localeCode }}"/>
+                                <x-form-inputtext label="Product Name" name="title:{{ $localeCode }}"/>
                                 <x-form-textarea label="Short Text" name="short:{{ $localeCode }}" ck="short{{ $localeCode }}"/>
 
                                 <x-form-textarea label="Desc" name="desc:{{ $localeCode }}" ck="aciklama{{ $localeCode }}"/>
 
                                 <x-form-textarea label="Tecnichal" name="note:{{ $localeCode }}" ck="note{{ $localeCode }}"/>
 
-                                <div class="row">
+                            {{--    <div class="row">
                                     <div class="col-md-3">
 
                                     </div>
@@ -85,7 +81,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="card-header mb-2">
                                     <h4 class="card-title">
@@ -180,135 +176,50 @@
                         </div>
                     </div>
                 </div>
-           {{--     <div class="form-group mb-3 p-1 row">
-                    <div class="mb-3">
-                        <label class="form-label">Ürün Özellikleri</label>
-                        <div class="divide-y">
-                            <div>
-                                <label class="row">
-                                    <span class="col">Özellik 1</span>
-                                    <span class="col-auto">
-                                    <label class="form-check form-check-single form-switch">
-                                      <input class="form-check-input"
-                                             type="checkbox"
-                                             name="option1"
-                                             value="{{ $Edit->option1 }}"
-                                             {{ ($Edit->option1 == 1) ? 'checked' : null }}
-                                      >
-                                    </label>
-                                  </span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="row">
-                                    <span class="col">Özellik 2</span>
-                                    <span class="col-auto">
-                                    <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="option2"
-                                           value="{{ $Edit->option2 }}"
-                                             {{ ($Edit->option2 == 1) ? 'checked' : null }}
-                                    >
-                                    </label>
-                                  </span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="row">
-                                    <span class="col">Özellik 3</span>
-                                    <span class="col-auto">
-                                    <label class="form-check form-check-single form-switch">
-                                     <input class="form-check-input"
-                                            type="checkbox"
-                                            name="option3"
-                                            value="{{ $Edit->option3 }}"
-                                             {{ ($Edit->option3 == 1) ? 'checked' : null }}
-                                     >
-                                    </label>
-                                  </span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="row">
-                                    <span class="col">Özellik 4</span>
-                                    <span class="col-auto">
-                                    <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="option4"
-                                           value="{{ $Edit->option4 }}"
-                                             {{ ($Edit->option4 == 1) ? 'checked' : null }}
-                                    >
-                                    </label>
-                                  </span>
-                                </label>
-                            </div>
-                        </div>
+            </div>
+
+            <div class="card mb-2 p-2" >
+                <div class="card-header">
+                    <h4 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" /><line x1="9" y1="13" x2="15" y2="13" /></svg>
+                        Include Product
+                    </h4>
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <div class="col-12 mt-1">
+                        <select class="form-control multiple" data-placeholder="Choose Category" multiple size="15" name="included[]" style="width: 100%">
+                            @foreach($Product as $item)
+                                <option value="{{ $item->id }}">
+                                    {{  $item->title.' - €'.$item->price }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Ürün Etiketleri</label>
-                    <div class="divide-y">
-                        <div>
-                            <label class="row">
-                                <span class="col">Fırsat Ürünü</span>
-                                <span class="col-auto">
-                                <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="opportunity"
-                                           value="{{ $Edit->opportunity }}"
-                                           @if ( $Edit->opportunity == 1) ?? checked @endif>
-                                </label>
-                              </span>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="row">
-                                <span class="col">Kampanyalı Ürün</span>
-                                <span class="col-auto">
-                                <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="offer"
-                                           value="{{ $Edit->offer }}"
-                                            {{ ( $Edit->offer == 1) ? 'checked' : null }} >
-                                </label>
-                              </span>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="row">
-                                <span class="col">Çok Satan</span>
-                                <span class="col-auto">
-                                <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="bestselling"
-                                           value="{{ $Edit->bestselling }}"
-                                           @if ( $Edit->bestselling == 1) ?? checked @endif>
-                                </label>
-                              </span>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="row">
-                                <span class="col">Ücretsiz Kargo</span>
-                                <span class="col-auto">
-                                <label class="form-check form-check-single form-switch">
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="freecargo"
-                                           value="{{ $Edit->freecargo }}"
-                                           @if ( $Edit->freecargo == 1) ?? checked @endif>
-                                </label>
-                              </span>
-                            </label>
-                        </div>
-                    </div>
-                </div>--}}
             </div>
+
+            <div class="card mb-2 p-2" >
+                <div class="card-header">
+                    <h4 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" /><line x1="9" y1="13" x2="15" y2="13" /></svg>
+                        Related Product
+                    </h4>
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <div class="col-12 mt-1">
+                        <select class="form-control multiple" data-placeholder="Choose Category" multiple size="15" name="related[]" style="width: 100%">
+                            @foreach($Product as $item)
+                                <option value="{{ $item->id }}">
+                                    {{  $item->title.' - €'.$item->price }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="card">
                 <div class="card-header">
@@ -396,6 +307,15 @@
 
 
 @section('customJS')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select').select2();
+            $('.multiple').select2({
+                placeholder: 'Select Product '
+            });
+        });
+    </script>
     <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -404,4 +324,8 @@
     </script>
     @include('backend.layout.ck')
 
+@endsection
+
+@section('customCSS')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection

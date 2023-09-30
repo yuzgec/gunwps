@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('offer')->nullable();
             $table->integer('bestselling')->nullable();
             $table->integer('freecargo')->nullable();
+
             $table->double('price')->nullable();
             $table->double('old_price')->nullable();
             $table->double('campagin_price')->nullable();

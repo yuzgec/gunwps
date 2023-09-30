@@ -91,17 +91,19 @@ class HomeController extends Controller
 
     public function product($categoryurl,$producturl){
 
-        $c= ProductCategory::whereHas('translations', function ($query) use ($categoryurl) {
+        $c = ProductCategory::whereHas('translations', function ($query) use ($categoryurl) {
             $query->where('slug', $categoryurl);
         })->first();
 
-        $product = Product::with('getBrand')->whereHas('translations', function ($query) use ($producturl) {
+        $product = Product::with(['getBrand','getRelated'])->whereHas('translations', function ($query) use ($producturl) {
             $query->where('slug', $producturl);
         })->first();
 
+        //dd($product->getRelated);
+
         views($product)->cooldown(60)->collection('view')->record();
 
-        SEOMeta::setTitle($product->title. ' Verhuur'." | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle($product->title. ' '.__('site.rental')." | WesterPark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 

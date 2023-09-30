@@ -86,7 +86,7 @@
                         </li>
                         <li class="order-3 dropdown">
                             <a class="dropdown-item dropdown-toggle" href="{{ route('contactus') }}">
-                                Contact Us
+                                Contact
                             </a>
                         </li>
                     </ul>

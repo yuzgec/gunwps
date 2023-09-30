@@ -10,16 +10,17 @@ class AddCart extends Component
 {
 
     public object $product;
+    public object $c;
 
-    public function add($url){
+    public function add(){
 
-        dd($url);
-
-        $p = Product::with('getBrand')->whereHas('translations', function ($query) use ($url) {
-            $query->where('slug', request($url));
+        $p = Product::with('getBrand')->whereHas('translations', function ($query) {
+            $query->where('slug', $this->product->slug);
         })->first();
 
-        Cart::instance('shopping')->add(
+        views($p)->collection('addCart')->record();
+
+        \Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->add(
             [
                 'id' => $p->id,
                 'name' => $p->title,
@@ -29,13 +30,16 @@ class AddCart extends Component
                 'options' => [
                     'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                     'lang' => config('app.locale'),
-                    'url' => $p->slug
+                    'url' => $this->product->slug,
+                    'brand' => $p->getBrand->title,
+                    'brandImage' => $p->getBrand->getFirstMediaUrl('page','small'),
+                    'category' => $this->c->slug,
                 ]
             ]);
 
-        $this->emit('addCart');
 
-        return redirect()->route('home');
+        return alert()->html('Added','<b>'.$p->title.'</b> Product have added to your cart.')->success()->autoClose(2000);
+
     }
 
     public function render()

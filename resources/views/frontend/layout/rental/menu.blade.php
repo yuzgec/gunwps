@@ -86,7 +86,7 @@
                         </li>
                         <li class="order-3 dropdown">
                             <a class="dropdown-item dropdown-toggle" href="{{ route('contactus') }}">
-                                Contact Us
+                                Contact
                             </a>
                         </li>
                     </ul>
@@ -98,15 +98,19 @@
 </div>
     <div class="mini-cart order-4 me-3 me-sm-0 d-none d-sm-block ">
         <div class="d-flex">
+
             <span class="font-weight-bold font-primary d-none d-sm-block">
-                <span class="cart-total">
-                    € {{ Cart::instance('shopping')->priceTotal()}}
-                </span>
+                <a href="{{ route('cart') }}">
+                    <span class="cart-total">
+                        € {{ Cart::instance('shopping')->priceTotal()}}
+                    </span>
+               </a>
             </span>
             <div class="mini-cart-icon">
                 <img src="/frontend/img/icons/cart-bag.svg" class="img-fluid " alt="WesterPark Studio Amsterdam" />
                 <span class="badge badge-primary rounded-circle" style="margin-left:15px">{{ Cart::instance('shopping')->content()->count() }}</span>
             </div>
+
         </div>
 
         @if (Cart::instance('shopping')->content()->count() > 0)

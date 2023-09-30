@@ -14,10 +14,10 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="font-weight-bold">{{ $product->title }} Verhuur</h1>
-                    <p>Wester Park Studio Amsterdam   <stron>{{ __('site.equipment') }}</stron></p>
+                    <h1 class="font-weight-bold">{{ $product->title.' '.__('site.rental')  }} </h1>
+                    <p>Westerpark Studio Amsterdam   <strong>{{ __('site.equipment') }}</strong></p>
 
-                    @if(auth()->user())
+                    @if(auth()->user() && auth()->user()->is_admin == 1)
                         <a href="{{ route('product.edit', $product->id) }}">Ürün Düzenle</a>
                     @endif
                 </div>
@@ -26,10 +26,64 @@
     </section>
 
     <div class="container container-fluid">
-
         <div class="row">
-            <aside class="sidebar col-md-4 col-lg-3 order-2 order-md-1">
-                <div class="accordion accordion-default accordion-toggle accordion-style-1" role="tablist">
+            <aside class="sidebar col-md-3 order-2 order-md-1">
+
+                    @if ($product->getRelated->where('name', 'included')->count() > 0)
+                    <div class="mb-4">
+                        <h5>{{ __('site.included') }}</h5>
+                        @foreach($product->getRelated->where('name', 'included') as $item)
+                            @php $p = \App\Models\Product::where('id', $item->related_id)->first() @endphp
+                            <div style="border: 1px solid #e4e4e4;border-radius: 15px;overflow: hidden" class="mb-2">
+                                <div class="row">
+                                    <div class="col-md-4 col-3 bg-white d-flex justify-content-center">
+                                        <div class="">
+                                            <img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'small')}}"
+                                                 class="img-fluid" alt="{{ $p->title }}"  width="75px" height="75px">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-9 bg-success d-flex align-items-center" style="border-left: 1px solid white;">
+                                        <h5 class="text-white text-2">{{ $p->title }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+                    @if(($product->getRelated->where('name', 'related')->count() > 0))
+                    <div>
+                        <h5>{{ __('site.related') }}</h5>
+                        @foreach($product->getRelated->where('name', 'related') as $item)
+                            @php $p = \App\Models\Product::where('id', $item->related_id)->first() @endphp
+
+                            <div style="border: 1px solid black;border-radius: 15px;overflow: hidden" class="mb-2">
+                                <div class="">
+                                    <div class="row flex justify-content-center align-items-center">
+                                        <div class="col-md-4 col-3 bg-white text-center">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <img src="{{ (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'small')}}"
+                                                     class="img-fluid" alt="{{ $p->title }}"  width="75px" height="75px">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-7">
+                                            <div class="p-3">
+                                                <h5>{{ $p->title }}</h5>
+                                                <span>€{{ $p->price }} <del>${{ $p->price / 2 }}</del></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-2 position-relative" style="right: 20px">
+                                            <button class="btn btn-success p-1">
+                                                <i class="fas fa-shopping-basket pt-1"></i>{{ (cartControl($p->id) == true) ? '('.cartControl($p->id).')' : null }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                     @endif
+
+                <div class="accordion accordion-default accordion-toggle accordion-style-3 mb-2" role="tablist">
 
                     <div class="card">
                         <div class="card-header accordion-header" role="tab" id="categories">
@@ -56,8 +110,7 @@
                     </div>
                 </div>
             </aside>
-
-            <div class="col-md-8 col-lg-9 mb-5 mb-md-0 order-1 order-md-2">
+            <div class="col-md-9 mb-5 mb-md-0 order-1 order-md-2">
                 <div class="row mb-5">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <span><a onclick="history.back()"><i class="icon-arrow-left-circle icon"></i> Go Back</a></span>
@@ -116,16 +169,17 @@
                                      <span class="font-weight-bold text-white text-3">€ {{ (request('extvat') == 1) ? round($product->price * 1.21) / 2 : $product->price / 2}}</span>
                                  </div>
                                  <div class="col-12 col-md-4 p-1 text-center">
-                                        @if($product->status == 0 )
+                                     @if($product->status == 0 )
                                      <button class="btn btn-rounded btn-with-arrow btn-danger mb-1 disable text-1">
                                          {{ __('site.productpage.notavailable') }}<br>
                                      </button>
                                     @else
+                                    {{--<livewire:add-cart :product="$product" :c="$c"/>--}}
                                      <form action="{{ route('addtocart', [$product->slug, $c->slug]) }}" method="POST">
                                      @csrf
                                      <input type="hidden" name="id" value="{{ $product->id }}">
                                      <button type="submit" class="btn btn-rounded btn-outline btn-with-arrow btn-light mb-1">
-                                         Add to Cart <br>
+                                         Add {{ (cartControl($product->id) == true) ? '('.cartControl($product->id).')' : null }} <br>
                                          <span><i class="fas fa-chevron-right"></i></span>
                                      </button>
                                      </form>
@@ -155,10 +209,7 @@
                                     </a>
                                 </div>
                             </div>
-
-
                         </div>
-
 
                         <div id="short" class="mt-3">{!! $product->short  !!}</div>
                         <hr class="my-2">
@@ -183,13 +234,18 @@
                             </div>
                         </div>
                         <hr class="my-2">
-                        @if($product->external)
+                        @if($product->extarnal)
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
                                 <a href="https://www.cinegear.nl">
                                     <img src="https://cinegear.nl/wp-content/uploads/2023/03/Transparent_Normal_Logo.png" class="img-fluid">
                                 </a>
-                                <br>If you want, you can buy this product on <a href="https://www.cinegear.nl">cinegear.nl</a>
+                            </div>
+                            <div class="col-12 col-md-9 d-flex align-items-center justify-content-center">
+                                If you want, you can buy this product on
+                                <a class="btn btn-rounded btn-outline btn-with-arrow btn-dark mb-2" href="https://www.cinegear.nl">to product
+                                    <span><i class="fas fa-chevron-right"></i></span>
+                                </a>
                             </div>
                         </div>
                         <hr class="my-4">
@@ -256,24 +312,18 @@
 
             </div>
         </div>
-
     </div>
-
 @endsection
-
 
 @section('customJS')
     <script src="/frontend/js/examples/examples.gallery.js"></script>
     <script>
         $(document).ready(function() {
-
             $("table").addClass("table table-hover table-striped table-bordered table-responsive");
             $("img").addClass('img-fluid');
             $("#short > ul").addClass('list list-group');
             $("#short > ul > li ").addClass('list-group-item');
-
             setInterval(function(){ $(".alertt").fadeOut(); }, 6000);
         })
-
     </script>
 @endsection

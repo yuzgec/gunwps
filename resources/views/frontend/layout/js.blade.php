@@ -1,3 +1,4 @@
+@livewireScripts
 <script src="/frontend/vendor/jquery/jquery.min.js"></script>
 <script src="/frontend/vendor/jquery.appear/jquery.appear.min.js"></script>
 <script src="/frontend/vendor/jquery.easing/jquery.easing.min.js"></script>
@@ -16,6 +17,7 @@
 <script src="/frontend/js/custom.js"></script>
 <script async src="/frontend/js/theme.init.js"></script>
 <script src="/frontend/js/examples/examples.lightboxes.js"></script>
+
 
 @section('customJS')
     <script>

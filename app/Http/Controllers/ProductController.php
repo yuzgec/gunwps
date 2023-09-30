@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\ProdoctCategoryPivot;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\RelatedIncludeProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,7 +37,8 @@ class ProductController extends Controller
     {
         $Kategori = ProductCategory::orderBy('rank', 'asc')->get();
         $Brand = Brand::all();
-        return view('backend.product.create',compact('Kategori', 'Brand'));
+        $Product = Product::all();
+        return view('backend.product.create',compact('Kategori', 'Brand', 'Product'));
     }
 
     public function store(Request $request)
@@ -54,23 +56,6 @@ class ProductController extends Controller
                     $New->addMedia($item)->toMediaCollection('gallery');
                 }
             }
-
-            if ($request->hasfile('web_nl')) {
-                $New->addMedia($request->web_nl)->toMediaCollection('web_nl');
-            }
-
-            if ($request->hasfile('mobil_nl')) {
-                $New->addMedia($request->mobil_nl)->toMediaCollection('mobil_nl');
-            }
-
-            if ($request->hasfile('web_en')) {
-                $New->addMedia($request->web_en)->toMediaCollection('web_en');
-            }
-
-            if ($request->hasfile('mobil_en')) {
-                $New->addMedia($request->mobil_en)->toMediaCollection('mobil_en');
-            }
-
 
             if ($request->category) {
                 foreach ($request->category as $c) {
@@ -96,15 +81,17 @@ class ProductController extends Controller
         $Edit = Product::with('getCategory')->where('id',$id)->first();
         $Kategori = ProductCategory::get()->toFlatTree();
         $Brand = Brand::all();
+        $Product = Product::all();
 
-        return view('backend.product.edit', compact('Edit', 'Kategori','Brand'));
+        return view('backend.product.edit', compact('Edit', 'Kategori','Brand', 'Product'));
     }
 
     public function update(Request $request, Product $Update)
     {
 
         DB::transaction(function () use($request, $Update) {
-            $Update->update($request->except('_token', 'image', 'gallery', 'category', 'web_nl', 'mobil_nl', 'web_en', 'mobil_en'));
+
+            $Update->update($request->except('_token', 'image', 'gallery', 'category', 'related', 'included'));
 
             if ($request->removeImage == "1") {
                 $Update->media()->where('collection_name', 'page')->delete();
@@ -115,25 +102,6 @@ class ProductController extends Controller
                 $Update->addMedia($request->image)->toMediaCollection('page');
             }
 
-            if ($request->hasfile('web_nl')) {
-                $Update->media()->where('collection_name', 'web_nl')->delete();
-                $Update->addMedia($request->web_nl)->toMediaCollection('web_nl');
-            }
-
-            if ($request->hasfile('mobil_nl')) {
-                $Update->media()->where('collection_name', 'mobil_nl')->delete();
-                $Update->addMedia($request->mobil_nl)->toMediaCollection('mobil_nl');
-            }
-
-            if ($request->hasfile('web_en')) {
-                $Update->media()->where('collection_name', 'web_en')->delete();
-                $Update->addMedia($request->web_en)->toMediaCollection('web_en');
-            }
-
-            if ($request->hasfile('mobil_en')) {
-                $Update->media()->where('collection_name', 'mobil_en')->delete();
-                $Update->addMedia($request->mobil_en)->toMediaCollection('mobil_en');
-            }
 
             if ($request->hasfile('gallery')) {
                 foreach ($request->gallery as $item) {
@@ -142,6 +110,28 @@ class ProductController extends Controller
             }
 
             $Update->save();
+
+            //dd($request->related);
+
+            if ($request->related) {
+                foreach ($request->related as $c) {
+                    $Delete = RelatedIncludeProduct::where(['product_id' => $Update->id, 'related_id' => $c]);
+                    $Delete->delete();
+                }
+                foreach ($request->related as $c) {
+                    RelatedIncludeProduct::updateOrCreate(['product_id' => $Update->id, 'name' => 'related', 'related_id' => $c]);
+                }
+            }
+
+            if ($request->included) {
+                foreach ($request->included as $c) {
+                    $Delete = RelatedIncludeProduct::where(['product_id' => $Update->id, 'related_id' => $c]);
+                    $Delete->delete();
+                }
+                foreach ($request->included as $c) {
+                    RelatedIncludeProduct::updateOrCreate(['product_id' => $Update->id, 'name' => 'included', 'related_id' => $c]);
+                }
+            }
 
             if ($request->category) {
                 foreach ($request->category as $c) {

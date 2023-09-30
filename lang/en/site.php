@@ -35,6 +35,8 @@ return [
     'filmstudio' => "Film Studio Rental",
     'fotostudio' => "Foto Studio Rental",
     'equipment' => "Equipment Rental",
+    'included' => 'Included In the Kit',
+    'related' => 'Recommend to add',
 
     //Link Önekleri
     'galeri_link' => 'gallery',
