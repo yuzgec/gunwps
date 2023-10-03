@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index(){
 
 
-        SEOMeta::setTitle("WesterPark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Westerpark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
         return view('frontend.index');
@@ -61,7 +61,7 @@ class HomeController extends Controller
 
     public function rental(){
 
-        SEOMeta::setTitle(__('site.equipment')." | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle(__('site.equipment')." | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -82,7 +82,7 @@ class HomeController extends Controller
             $query->where('category_id', $show->id);
         })->orderby('rank','asc')->get();
 
-        SEOMeta::setTitle($show->title ." | Apparatuur Verhuur | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle($show->title ." | Apparatuur Verhuur | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -103,7 +103,7 @@ class HomeController extends Controller
 
         views($product)->cooldown(60)->collection('view')->record();
 
-        SEOMeta::setTitle($product->title. ' '.__('site.rental')." | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle($product->title. ' '.__('site.rental')." | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -146,7 +146,7 @@ class HomeController extends Controller
 
     public function cart(){
 
-        SEOMeta::setTitle("Cart | WesterPark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Cart | Westerpark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -155,7 +155,7 @@ class HomeController extends Controller
 
     public function checkout(Request $request){
 
-        SEOMeta::setTitle("Checkout | WesterPark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Checkout | Westerpark Studio | Amsterdam | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
         return view('frontend.rental.checkout', compact('request'));
@@ -163,7 +163,7 @@ class HomeController extends Controller
 
     public function studio(){
 
-        SEOMeta::setTitle(__('site.studio')." | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle(__('site.studio')." | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -182,7 +182,7 @@ class HomeController extends Controller
 
         views($show)->cooldown(60)->collection('view')->record();
 
-        SEOMeta::setTitle("WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle("Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -191,7 +191,7 @@ class HomeController extends Controller
 
     public function contactus(){
 
-        SEOMeta::setTitle("Contact Us | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle("Contact Us | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -202,7 +202,7 @@ class HomeController extends Controller
         $New = Contact::create($request->except('_token'));
 
         Mail::send("frontend.mail.contact",compact('New'),function ($message) use($New) {
-            $message->to('info@Westerpark Studio.nl')->subject($New->name.' - '.$New->email.' WPS Contact Form');
+            $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' WPS Contact Form');
         });
         //info@Westerpark Studio.nl
         //olcayy@gmail.com
@@ -214,7 +214,7 @@ class HomeController extends Controller
 
     public function gallery(){
 
-        SEOMeta::setTitle("Gallery | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle("Gallery | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -223,7 +223,7 @@ class HomeController extends Controller
 
     public function video(){
 
-        SEOMeta::setTitle("Video Gallery | Amsterdam WesterPark Studio | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Video Gallery | Amsterdam Westerpark Studio | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
         $all = Video::all();
@@ -232,7 +232,7 @@ class HomeController extends Controller
 
     public function foto(){
 
-        SEOMeta::setTitle("Foto Gallery | Amsterdam WesterPark Studio | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Foto Gallery | Amsterdam Westerpark Studio | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
         $all = GalleryCategory::with('getGallery')->withCount('getGallery')->get();
@@ -248,7 +248,7 @@ class HomeController extends Controller
         views($show)->cooldown(60)->collection('view')->record();
 
         $all = Gallery::where('category', $show->id)->get();
-        SEOMeta::setTitle($show->title." | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle($show->title." | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -276,7 +276,7 @@ class HomeController extends Controller
 
     public function project(){
 
-        SEOMeta::setTitle("WesterPark Studio | Amsterdam WesterPark Studio | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Amsterdam Westerpark Studio |  ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -285,7 +285,7 @@ class HomeController extends Controller
 
     public function faq(){
 
-        SEOMeta::setTitle("F.A.Q | Amsterdam WesterPark Studio | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("F.A.Q | Amsterdam Westerpark Studio | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -296,7 +296,7 @@ class HomeController extends Controller
 
     public function kinefinity(){
 
-        SEOMeta::setTitle("Kinefinity Cinema Camera | WesterPark Studio | Amsterdam");
+        SEOMeta::setTitle("Kinefinity Cinema Camera | Westerpark Studio | Amsterdam");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -307,7 +307,7 @@ class HomeController extends Controller
 
     public function services(){
 
-        SEOMeta::setTitle("Services | Amsterdam WesterPark Studio | ".__('site.equipment').' | '. __('site.studio'));
+        SEOMeta::setTitle("Services | Amsterdam Westerpark Studio | ".__('site.equipment').' | '. __('site.studio'));
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
@@ -345,7 +345,7 @@ class HomeController extends Controller
             return redirect()->back();
         }
 
-        SEOMeta::setTitle("  ".$q. " | Amsterdam WesterPark Studio | ");
+        SEOMeta::setTitle("  ".$q. " | Amsterdam Westerpark Studio | ");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 
