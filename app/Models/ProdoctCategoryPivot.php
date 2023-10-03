@@ -11,6 +11,10 @@ class ProdoctCategoryPivot extends Pivot
     protected $table = "category_product";
     protected $guarded = [];
 
+    public function categoryFind(){
+        return $this->hasOne(ProductCategory::class, 'category_id', 'id');
+    }
+
     public $timestamps = false;
 
 }

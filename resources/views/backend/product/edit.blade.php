@@ -280,7 +280,7 @@
                                         {{ $item }}
                                     </td>
                                     <td>
-                                        <form action="{{route('page.deleteGaleriDelete', $Edit->id)}}" method="POST">
+                                        <form action="{{route('product.deleteGaleriDelete', $Edit->id)}}" method="POST">
                                             <input type="hidden" name="image_id" value="{{$item->id}}">
                                             @csrf
                                             @method('DELETE')

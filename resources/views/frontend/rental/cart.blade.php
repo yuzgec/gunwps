@@ -76,7 +76,7 @@
                                         </form>
                                     </td>
                                     <td class="product-thumbnail text-center">
-                                        <img src="{{ $c->options->image }}"  alt="{{$c->name}}" style="width: 80px;mix-blend-mode: multiply"/>
+                                        <img src="{{ $c->options->image }}"  alt="{{$c->name}}" style="width: 50px;mix-blend-mode: multiply"/>
                                     </td>
 
                                     <td class="product-name text-center align-items-center">

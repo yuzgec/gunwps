@@ -54,8 +54,7 @@
                     <div>
                         <h5>{{ __('site.related') }}</h5>
                         @foreach($product->getRelated->where('name', 'related') as $item)
-                            @php $p = \App\Models\Product::where('id', $item->related_id)->first() @endphp
-
+                            @php $p = \App\Models\Product::with('categories')->where('id', $item->related_id)->first() @endphp
                             <div style="border: 1px solid black;border-radius: 15px;overflow: hidden" class="mb-2">
                                 <div class="">
                                     <div class="row flex justify-content-center align-items-center">
@@ -67,7 +66,7 @@
                                         </div>
                                         <div class="col-md-6 col-7">
                                             <div class="p-3">
-                                                <h5>{{ $p->title }}</h5>
+                                                <h5><a href="{{ route('product', [$p->categories->slug, $p->slug]) }}"> {{ $p->title }}</a> </h5>
                                                 <span>€{{ $p->price }} <del>${{ $p->price / 2 }}</del></span>
                                             </div>
                                         </div>
@@ -160,11 +159,11 @@
                         @endif
                         <div class="{{ (cartControl($product->id) == true) ? 'bg-success' : 'bg-primary' }}" style="border-radius: 10px">
                              <div class="row d-flex justify-content-between align-items-center p-3">
-                                 <div class="col-12 col-md-4 text-center" style="border-right:1px solid gray">
+                                 <div class="col-6 col-md-4 text-center mb-1" style="border-right:1px solid gray">
                                      <span class="font-weight-bold text-white text-4">First Day</span><br>
                                      <span class="font-weight-bold text-white text-3">€ {{ (request('extvat') == 1) ? $product->price * 1.21 : $product->price}}</span>
                                  </div>
-                                 <div class="col-12 col-md-4 text-center">
+                                 <div class="col-6 col-md-4 mb-1 text-center">
                                      <span class="font-weight-bold text-white text-4">Next Day</span><br>
                                      <span class="font-weight-bold text-white text-3">€ {{ (request('extvat') == 1) ? round($product->price * 1.21) / 2 : $product->price / 2}}</span>
                                  </div>

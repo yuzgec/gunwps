@@ -415,7 +415,7 @@ class HomeController extends Controller
                 });*/
 
                 Mail::send("frontend.mail.offer",compact('New', 'Product'),function ($message) use($New) {
-                    $message->to('info@Westerpark Studio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
+                    $message->to('info@westerparkstudio.nl')->subject($New->name.' - '.$New->email.' Offer Form');
                 });
             }
 
