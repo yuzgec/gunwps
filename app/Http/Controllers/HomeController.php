@@ -345,7 +345,7 @@ class HomeController extends Controller
             return redirect()->back();
         }
 
-        SEOMeta::setTitle("  ".$q. " | Amsterdam Westerpark Studio | ");
+        SEOMeta::setTitle("  ".$q. " | Amsterdam Westerpark Studio ");
         SEOMeta::setDescription("Westerpark Studio");
         SEOMeta::setCanonical(url()->full());
 

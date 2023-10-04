@@ -29,7 +29,7 @@
         <div class="row">
             <aside class="sidebar col-md-3 order-2 order-md-1">
 
-                    @if ($product->getRelated->where('name', 'included')->count() > 0)
+                  {{--  @if ($product->getRelated->where('name', 'included')->count() > 0)
                     <div class="mb-4">
                         <h5>{{ __('site.included') }}</h5>
                         @foreach($product->getRelated->where('name', 'included') as $item)
@@ -49,7 +49,7 @@
                             </div>
                         @endforeach
                     </div>
-                @endif
+                   @endif
                     @if(($product->getRelated->where('name', 'related')->count() > 0))
                     <div>
                         <h5>{{ __('site.related') }}</h5>
@@ -80,7 +80,7 @@
                             </div>
                         @endforeach
                     </div>
-                     @endif
+                     @endif--}}
 
                 <div class="accordion accordion-default accordion-toggle accordion-style-3 mb-2" role="tablist">
 
