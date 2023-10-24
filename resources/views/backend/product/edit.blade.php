@@ -321,6 +321,10 @@
         $(document).ready(function() {
             $("img").addClass("img-fluid");
         })
+
+        $('input[type="checkbox"]').on('change', function(){
+            this.value ^= 1;
+        });
     </script>
     @include('backend.layout.ck')
 
