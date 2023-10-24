@@ -91,7 +91,7 @@ class ProductController extends Controller
 
         DB::transaction(function () use($request, $Update) {
 
-            $Update->update($request->except('_token', 'image', 'gallery', 'category', 'related', 'included'));
+            $Update->update($request->except('_token', 'image', 'gallery', 'category', 'related', 'included', 'removeImage'));
 
             if ($request->removeImage == "1") {
                 $Update->media()->where('collection_name', 'page')->delete();
@@ -113,7 +113,7 @@ class ProductController extends Controller
 
             //dd($request->related);
 
-            if ($request->related) {
+        /*    if ($request->related) {
                 foreach ($request->related as $c) {
                     $Delete = RelatedIncludeProduct::where(['product_id' => $Update->id, 'related_id' => $c]);
                     $Delete->delete();
@@ -131,7 +131,7 @@ class ProductController extends Controller
                 foreach ($request->included as $c) {
                     RelatedIncludeProduct::updateOrCreate(['product_id' => $Update->id, 'name' => 'included', 'related_id' => $c]);
                 }
-            }
+            }*/
 
             if ($request->category) {
                 foreach ($request->category as $c) {
